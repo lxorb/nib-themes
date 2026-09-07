@@ -49,6 +49,18 @@ export function registryOf(root, generated) {
       throw new Error(`${id} does not pass, so no index was written.\n${said.join('\n')}`)
     }
 
+    // paletteOf throws on a value a palette cannot carry. Caught here so the
+    // message names the theme it came from, which is what somebody reading a
+    // failed check has to know to fix it.
+    let palettes
+    try {
+      palettes = Object.fromEntries(
+        SCHEMES.map((scheme) => [scheme, paletteOf(found.root, found.schemes, scheme)]),
+      )
+    } catch (error) {
+      throw new Error(`themes/${id}/theme.css: ${error.message}`)
+    }
+
     themes.push({
       id: meta.id,
       name: meta.name,
@@ -59,9 +71,7 @@ export function registryOf(root, generated) {
       licence: meta.licence,
       variants: [...meta.variants],
       updated: meta.updated,
-      palettes: Object.fromEntries(
-        SCHEMES.map((scheme) => [scheme, paletteOf(found.root, found.schemes, scheme)]),
-      ),
+      palettes,
     })
   }
 

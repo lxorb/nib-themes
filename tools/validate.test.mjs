@@ -425,6 +425,20 @@ describe('the palettes the index carries', () => {
     const { root, schemes } = reviewCss("[data-theme='dark'] { --accent-soft: rgb(1 2 3 / 0.15) }")
     assert.equal(paletteOf(root, schemes, 'dark')['--accent-soft'], 'rgb(1 2 3 / 0.15)')
   })
+
+  test('a value a palette could not carry is refused rather than quietly dropped', () => {
+    // A semicolon inside a string is a value the rules allow, because by the time
+    // they see it the declaration has been split and the one they met was text. A
+    // palette has nothing in front of it: the store pastes it into a block of its
+    // own, where that semicolon would end the declaration, and the app drops the
+    // value and paints the card a colour short without a word. So the index
+    // refuses to write one at all.
+    const { errors, root, schemes } = reviewCss(
+      `:root { --font-content: 'Semi; colon', serif }\n${LIGHT}`,
+    )
+    assert.deepEqual(errors, [])
+    assert.throws(() => paletteOf(root, schemes, 'light'), /cannot go in a palette/)
+  })
 })
 
 describe('the themes in this repository', () => {

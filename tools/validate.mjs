@@ -254,6 +254,16 @@ export function usableValue(value) {
   return doubles % 2 === 0 && singles % 2 === 0
 }
 
+/** The same question, for a value that goes into a palette in `index.json`.
+ *
+ *  A palette is pasted straight into a block the store's gallery writes, so
+ *  nothing there has looked at where its braces and semicolons are. The app
+ *  refuses one that holds them and paints the card a colour short, without a
+ *  word, so the registry has to refuse to write one at all; see `paletteOf`. */
+export function usablePaletteValue(value) {
+  return usableValue(value) && !/[{};]/.test(value)
+}
+
 /** What a custom property is called. */
 const TOKEN = /^--[a-z0-9-]+$/i
 
@@ -722,12 +732,30 @@ export function reviewTheme(folder, meta, css) {
 
 /** Every token that applies under one scheme: the shared block, then the
  *  scheme's own on top of it, which is the order the browser resolves them in.
- *  A scheme the theme does not state has no palette at all. */
+ *  A scheme the theme does not state has no palette at all.
+ *
+ *  Throws on a value a palette cannot carry, which is the one thing here that is
+ *  not a matter of taste. `usableValue` lets a brace or a semicolon inside a
+ *  string through, because by the time it is asked the scanner has read the block
+ *  and knows the one it met was text. A palette has no scanner in front of it:
+ *  the store pastes it into a block of its own, where a semicolon ends the
+ *  declaration and a brace ends the block, and the app drops such a value without
+ *  a word and paints the card a colour short. So it is refused here instead,
+ *  loudly, at submission, while there is still somebody to ask. */
 export function paletteOf(root, schemes, scheme) {
   if (!schemes.has(scheme)) return {}
 
   const merged = new Map(root)
   for (const [token, value] of schemes.get(scheme)) merged.set(token, value)
+
+  for (const [token, value] of merged) {
+    if (!usablePaletteValue(value)) {
+      throw new Error(
+        `${token}: ${value} cannot go in a palette, because a brace or a semicolon in one would end the block the store pastes it into, so write the value without them`,
+      )
+    }
+  }
+
   return Object.fromEntries(merged)
 }
 
