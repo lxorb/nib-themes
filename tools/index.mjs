@@ -97,7 +97,9 @@ export function difference(wanted, found) {
   return said
 }
 
-function main() {
+/** The tool. Wrapped by `main`, which turns a theme that does not pass into a
+ *  sentence rather than a stack trace. */
+function run() {
   const root = repoRoot()
   const path = join(root, INDEX)
   const checking = process.argv.includes('--check')
@@ -143,6 +145,15 @@ function main() {
   console.error('')
   for (const line of difference(wanted, found)) console.error(line)
   process.exitCode = 1
+}
+
+function main() {
+  try {
+    run()
+  } catch (error) {
+    console.error(error.message)
+    process.exitCode = 1
+  }
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url))) {

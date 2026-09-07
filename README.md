@@ -58,7 +58,9 @@ node tools/no-em-dash.mjs
 `index.json` is generated and committed, because the registry is served as
 static files and there is nothing on the other end to build it. CI runs
 `--check` rather than committing a regenerated file itself, so a pull request
-that edits a theme and forgets the index fails where its author can see it.
+that edits a theme and forgets the index fails where its author can see it. The
+one field it allows to differ is `generated`, which says when the file was
+written and so cannot be derived from the themes.
 
 ## Adding a theme
 
