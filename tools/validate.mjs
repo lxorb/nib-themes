@@ -229,6 +229,31 @@ export const KNOWN_TOKENS = new Set([
  *  past a check like this one. */
 const DANGEROUS = /url\s*\(|image-set\s*\(|element\s*\(|attr\s*\(|expression\s*\(|javascript:|\\/i
 
+/** Whether a value written back out is read back as the same value.
+ *
+ *  A comment marker would comment out the rest of the file from wherever it
+ *  landed, and a string opened and never closed swallows the end of the rule and
+ *  whatever follows it. Either makes the sheet that came out differ from the
+ *  sheet that went in, which is the one thing these rules exist to prevent. A
+ *  control character goes with them: it is invisible to a reviewer, and a value
+ *  that spans lines is not one a theme needs.
+ *
+ *  A brace or a semicolon needs no rule of its own. `scan` has already ended the
+ *  block at a `}` and set the rule aside at a `{`, and `declarationsOf` has
+ *  split the declaration at an unquoted `;`, so one that reaches a value here is
+ *  inside a string and stays there. That is what lets a font family called
+ *  `'Semi; colon'` through, which a blanket ban would not.
+ *
+ *  The same rule as `usableValue` in the app's own copy of this file. */
+export function usableValue(value) {
+  if (!value || DANGEROUS.test(value)) return false
+  if (/\/\*|\*\//.test(value) || /\p{Cc}/u.test(value)) return false
+
+  const doubles = value.split('"').length - 1
+  const singles = value.split("'").length - 1
+  return doubles % 2 === 0 && singles % 2 === 0
+}
+
 /** What a custom property is called. */
 const TOKEN = /^--[a-z0-9-]+$/i
 
@@ -350,23 +375,44 @@ export function scan(css) {
     return low + 1
   }
 
+  /** The line a fragment starts on, counted from its first non-blank character,
+   *  so a reason names the line the author is looking at rather than a blank one
+   *  above it. */
+  const lineOf = (from, part) => lineAt(from + part.length - part.trimStart().length)
+
   let at = 0
   while (at < css.length) {
     const open = css.indexOf('{', at)
     if (open < 0) {
       const rest = css.slice(at)
       if (rest.trim()) {
-        stray.push({
-          text: rest.trim().slice(0, 40),
-          line: lineAt(at + rest.length - rest.trimStart().length),
-        })
+        stray.push({ text: rest.trim().slice(0, 40), line: lineOf(at, rest) })
       }
       break
     }
 
+    // An at-rule with no block of its own, a `@charset` or a bare `@import`,
+    // ends at its semicolon, and what follows that semicolon is the next rule's
+    // selector. So the text before the brace is split there and every part but
+    // the last is set aside on its own, rather than the whole of it being read as
+    // one prelude and the rule after the at-rule going down with it.
     const chunk = css.slice(at, open)
-    const prelude = chunk.trim()
-    const line = lineAt(at + chunk.length - chunk.trimStart().length)
+    const statements = []
+    let from = at
+    for (const part of chunk.split(';')) {
+      statements.push({ text: part, from })
+      from += part.length + 1
+    }
+
+    const last = statements.pop()
+    for (const one of statements) {
+      if (one.text.trim()) {
+        stray.push({ text: one.text.trim().slice(0, 40), line: lineOf(one.from, one.text) })
+      }
+    }
+
+    const prelude = last.text.trim()
+    const line = lineOf(last.from, last.text)
     const close = css.indexOf('}', open)
     if (close < 0) {
       stray.push({ text: prelude.slice(0, 40) || '{', line })
@@ -513,9 +559,11 @@ export function reviewCss(css) {
         continue
       }
 
-      if (DANGEROUS.test(value)) {
+      if (!usableValue(value)) {
         errors.push(
-          `${where}: ${property} reaches outside the stylesheet, and a theme may only state colours it wrote itself`,
+          DANGEROUS.test(value)
+            ? `${where}: ${property} reaches outside the stylesheet, and a theme may only state colours it wrote itself`
+            : `${where}: ${property} is not a value a theme may state, because it holds a comment marker, a control character or a quote it never closes, and the sheet that came out would not be the sheet that went in`,
         )
         continue
       }

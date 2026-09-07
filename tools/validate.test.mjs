@@ -207,14 +207,76 @@ describe('a stylesheet the registry refuses', () => {
     refused(':root { --bg: \\0075rl(x) }', 'reaches outside')
   })
 
+  test('a value that would be read back as something else', () => {
+    // A comment marker comments out the rest of the file from wherever it lands,
+    // and a quote never closed swallows the end of the rule and whatever follows
+    // it. Either means the sheet the app applies is not the sheet read here,
+    // which is the one thing these rules exist to prevent.
+    refused(':root { --bg: #fff /* }', 'is not a value a theme may state')
+    refused(':root { --bg: */ #fff }', 'is not a value a theme may state')
+    refused(":root { --font-mono: 'X, monospace }", 'is not a value a theme may state')
+    refused(':root { --font-mono: "X, monospace }', 'is not a value a theme may state')
+
+    // A control character goes with them, because it is invisible to whoever
+    // reviews the submission. Which also means a value stays on one line: write
+    // a long shadow out in full rather than wrapping it.
+    refused(':root { --bg: #fff\u0007 }', 'is not a value a theme may state')
+    refused(':root { --shadow-sm: 0 1px\n    2px rgb(0 0 0 / 0.2) }', 'is not a value a theme may state')
+  })
+
+  test('a semicolon inside a string is not a breakout, so a font may keep one', () => {
+    // declarationsOf has already split the declaration at every semicolon that
+    // was not in a string, so one that reaches a value is text. Banning it with
+    // the rest would cost a real font family its name.
+    const { errors } = reviewCss("#write { font-family: 'Semi; colon', serif }")
+    assert.deepEqual(errors, [])
+  })
+
+  test('an at-rule with no block of its own does not take the rule after it', () => {
+    // It ends at its semicolon, so what follows the semicolon is a rule of its
+    // own. Read as one prelude the two went together, and the author was told
+    // about a line that was not the problem.
+    const { errors, schemes } = reviewCss(`@charset "utf-8";\n${DARK}`)
+    assert.equal(errors.length, 1)
+    assert.ok(errors[0].startsWith('line 1:'), errors[0])
+    assert.ok(errors[0].includes('@charset'), errors[0])
+    assert.equal(schemes.get('dark').get('--bg'), '#000000')
+  })
+
+  test('two at-rules in a row are two reasons, each on its own line', () => {
+    // The @media block leaves its closing brace behind as a third, which is the
+    // scanner refusing to read past a block it did not understand.
+    const { errors } = reviewCss("@import url('x.css');\n@media (min-width: 1px) { :root { --bg: #fff } }")
+    assert.ok(errors.length >= 2, errors.join(' | '))
+    assert.ok(errors[0].startsWith('line 1:'), errors[0])
+    assert.ok(errors[0].includes('@import'), errors[0])
+    assert.ok(about(errors, '@media'), errors.join(' | '))
+  })
+
   test('a rule that says nothing, and a declaration that is not one', () => {
     refused(':root { }', 'has no declarations')
     refused(':root { --bg }', 'is not a declaration')
     refused(':root { --bg: }', '--bg has no value')
   })
 
-  test('one rule that mixes a token block with prose', () => {
-    refused(':root, #write { color: red }', 'lists a token block and prose together')
+  test('one rule that mixes a token block with prose, in either order', () => {
+    // The first selector used to decide the kind of the whole rule, so the list
+    // below was read as prose and allowed to set opacity and font-size on :root,
+    // which is the element the app itself is laid out on: a window nobody can
+    // see, and every measurement in it rescaled. Nothing a theme wants needs the
+    // mixture, so the rule goes whole either way round.
+    for (const list of [
+      ':root, #write',
+      '#write, :root',
+      ':root, #write h1',
+      "#write, [data-theme='dark']",
+    ]) {
+      refused(`${list} { opacity: 0.03; font-size: 200px }`, 'lists a token block and prose together')
+    }
+
+    // Whole: it does not even count as stating the scheme it names.
+    const { schemes } = reviewCss("#write, [data-theme='dark'] { opacity: 0.03 }")
+    assert.equal(schemes.has('dark'), false)
   })
 
   test('a file larger than a theme may be', () => {
