@@ -376,9 +376,11 @@ export function scan(css) {
     const body = css.slice(open + 1, close)
     at = close + 1
 
-    // A brace inside the body means the block held a rule of its own: an
-    // at-rule, or nesting. Neither is part of a theme, and skipping to the
-    // first `}` would leave the rest of it read as top-level rules.
+    // Three things that are not a flat rule: a brace inside the body, which
+    // means the block held a rule of its own, so an at-rule or nesting; a
+    // prelude that opens one; and a block with no prelude at all. None of them
+    // is part of a theme, and reading on from the first `}` would leave the
+    // rest of the block read as top-level rules.
     if (body.includes('{') || prelude.startsWith('@') || !prelude) {
       stray.push({ text: prelude.slice(0, 40) || '{', line })
       continue
@@ -476,7 +478,9 @@ export function reviewCss(css) {
       declarations++
 
       if (!property) {
-        errors.push(`${where}: ${value} is not a declaration, and a declaration is "property: value"`)
+        errors.push(
+          `${where}: ${value} is not a declaration, and a declaration is "property: value"`,
+        )
         continue
       }
 
@@ -484,17 +488,23 @@ export function reviewCss(css) {
       const token = kind === 'tokens' && TOKEN.test(name)
 
       if (kind === 'prose' && !PROSE_PROPERTIES.has(name)) {
-        errors.push(`${where}: ${written} may not set ${property}, because a prose rule states how the words look and never where they are`)
+        errors.push(
+          `${where}: ${written} may not set ${property}, because a prose rule states how the words look and never where they are`,
+        )
         continue
       }
 
       if (kind === 'tokens' && !token && !TOKEN_PROPERTIES.has(name)) {
-        errors.push(`${where}: ${written} may not set ${property}, because a token block sets custom properties and color-scheme`)
+        errors.push(
+          `${where}: ${written} may not set ${property}, because a token block sets custom properties and color-scheme`,
+        )
         continue
       }
 
       if (token && !KNOWN_TOKENS.has(property)) {
-        errors.push(`${where}: ${property} is not a token Nib declares, so setting it would do nothing`)
+        errors.push(
+          `${where}: ${property} is not a token Nib declares, so setting it would do nothing`,
+        )
         continue
       }
 
@@ -504,7 +514,9 @@ export function reviewCss(css) {
       }
 
       if (DANGEROUS.test(value)) {
-        errors.push(`${where}: ${property} reaches outside the stylesheet, and a theme may only state colours it wrote itself`)
+        errors.push(
+          `${where}: ${property} reaches outside the stylesheet, and a theme may only state colours it wrote itself`,
+        )
         continue
       }
 
