@@ -94,6 +94,14 @@ could set them could take a pane away or hold a menu open.
 
 Prose rules are for what a token cannot say. Most good themes have none, or one.
 
+### One list, one kind
+
+A selector list may not name both kinds. `#write, :root { }` is refused whole
+rather than read as one of them, because the two allow different properties and
+`:root` is the element the whole app is laid out on: a rule that reached it under
+the prose rules could set `opacity` or `font-size` there, which is a window
+nobody can see and every measurement in it rescaled. Write two rules.
+
 ## The tokens
 
 Every token Nib declares, which is every token a theme may set. Setting one that
@@ -178,6 +186,28 @@ this reader opened their editor. `element()` and `attr()` read the page.
 `expression()` is Internet Explorer's way of running script from CSS and costs
 nothing to refuse. A backslash is how a keyword gets spelled to slip past a
 check like this one, and no theme needs one.
+
+A value also has to read back as the value it was written as, so these go with
+them:
+
+```
+/*    */    a control character    an odd number of ' or of "
+```
+
+A comment marker comments out the rest of the file from wherever it lands, and a
+quote that is never closed swallows the end of the rule and whatever follows it.
+Either way the sheet that is applied is not the sheet that was read, which is the
+one thing all of this is for. A control character goes with them because it is
+invisible to whoever reviews the submission, and that also means a value stays on
+one line: write a long shadow out in full rather than wrapping it.
+
+A brace and a semicolon are not on the list. By the time a value is read the
+parser has ended the block at a `}`, refused the rule at a `{` and split the
+declaration at a `;`, so one that is left is inside a string and stays there.
+That is what lets `--font-content: 'Semi; colon', serif` through. One exception:
+a token whose value holds a brace or a semicolon fails when `index.json` is
+built, because a palette there is pasted straight into a block and has no parser
+in front of it. Put such a name in a prose rule instead.
 
 ## The limits
 
