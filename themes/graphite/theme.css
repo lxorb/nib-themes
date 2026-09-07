@@ -1,0 +1,56 @@
+/* Graphite: a dark theme with almost no hue in it. The surfaces are neutral
+   greys with the faintest blue cast, and the only colour that carries any
+   weight is a steel blue accent. Written for people who find Nib's own violet
+   too loud at night. */
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #16181a;
+  --surface: #1c1f22;
+  --surface-2: #23272b;
+  --surface-3: #2b3035;
+  --press: #343a40;
+
+  --line: #282d31;
+  --line-strong: #353b41;
+
+  --muted: #7f878e;
+  --muted-strong: #a2aab2;
+  --text: #dfe3e7;
+  --text-strong: #f4f6f8;
+
+  --accent: #6f9ec4;
+  --accent-hover: #81aed1;
+  --accent-press: #5c8cb3;
+  --accent-soft: rgb(111 158 196 / 0.16);
+  --accent-line: rgb(111 158 196 / 0.44);
+  --selection: rgb(111 158 196 / 0.3);
+
+  --danger: #e0666a;
+  --success: #5fbf90;
+
+  /* Canvas colours pulled towards grey. They stay far enough apart in hue to
+     tell six cards apart, and close enough in weight not to shout. */
+  --canvas-1: #d9635f;
+  --canvas-2: #cf8f4a;
+  --canvas-3: #c4bd6a;
+  --canvas-4: #6fb37f;
+  --canvas-5: #62b6b3;
+  --canvas-6: #9295cf;
+  --canvas-dot: #2f3438;
+
+  --scrollbar: #3b4146;
+  --scrollbar-hover: #4e565c;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.72);
+
+  --callout-note: #7aa7cc;
+  --callout-warning: #c9a15f;
+
+  /* The accent is light enough that white on it is unreadable, so what sits on
+     the accent is the background instead. */
+  --search-select-text-color: #16181a;
+}

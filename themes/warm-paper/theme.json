@@ -1,0 +1,11 @@
+{
+  "id": "warm-paper",
+  "name": "Warm Paper",
+  "author": "Emil Vinu",
+  "version": "1.0.0",
+  "description": "Cream paper, brown ink and a terracotta accent, for writing in daylight.",
+  "tags": ["light", "warm", "serif"],
+  "licence": "MIT",
+  "variants": ["light"],
+  "updated": "2026-09-07"
+}

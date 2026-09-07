@@ -1,0 +1,11 @@
+{
+  "id": "contrast",
+  "name": "Contrast",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "Black on white and white on black, with strong lines and a loud accent.",
+  "tags": ["light", "dark", "high contrast"],
+  "licence": "CC0-1.0",
+  "variants": ["light", "dark"],
+  "updated": "2026-09-07"
+}

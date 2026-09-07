@@ -1,0 +1,103 @@
+/* Solar: Ethan Schoonover's solarized base tones, and its yellow and blue for
+   everything that has to stand out.
+
+   Solarized sets body text at a deliberately low contrast, which is part of why
+   people like it and also why it is hard to read for a long time. The base hues
+   here are the originals; the text is taken further from the ground than base00
+   was, so the theme still looks solarized at 9:1. */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #fdf6e3;
+  --surface: #f5eed9;
+  --surface-2: #eee8d5;
+  --surface-3: #e3ddc7;
+  --press: #d5cfb8;
+
+  --line: #e8e1cb;
+  --line-strong: #c9c2a7;
+
+  --muted: #596d72;
+  --muted-strong: #465a5f;
+  --text: #33474d;
+  --text-strong: #073642;
+
+  --accent: #16688f;
+  --accent-hover: #0f5878;
+  --accent-press: #0a4a66;
+  --accent-soft: rgb(22 104 143 / 0.1);
+  --accent-line: rgb(22 104 143 / 0.38);
+  --selection: rgb(22 104 143 / 0.18);
+
+  --danger: #c22c2a;
+  --success: #5e6c00;
+
+  --canvas-1: #c22c2a;
+  --canvas-2: #b5410f;
+  --canvas-3: #9a7400;
+  --canvas-4: #5e6c00;
+  --canvas-5: #1f8c84;
+  --canvas-6: #5a5fb0;
+  --canvas-dot: #ddd6bf;
+
+  --scrollbar: #cec7ae;
+  --scrollbar-hover: #b5ad93;
+
+  --shadow-sm: 0 1px 2px rgb(7 54 66 / 0.1);
+  --shadow-md: 0 8px 24px -6px rgb(7 54 66 / 0.16);
+  --shadow-lg: 0 24px 64px -12px rgb(7 54 66 / 0.22);
+
+  --callout-note: #16688f;
+  --callout-warning: #9a7400;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* base03 and base02, then three steps the original palette does not have,
+     because Nib stacks more surfaces than a terminal does. */
+  --bg: #002b36;
+  --surface: #073642;
+  --surface-2: #0e4451;
+  --surface-3: #16535f;
+  --press: #1f6371;
+
+  --line: #0b3f4b;
+  --line-strong: #16535f;
+
+  --muted: #8a9da1;
+  --muted-strong: #a3b4b4;
+  --text: #bccbcb;
+  --text-strong: #eee8d5;
+
+  --accent: #4aa3d8;
+  --accent-hover: #62b2e0;
+  --accent-press: #3891c8;
+  --accent-soft: rgb(74 163 216 / 0.16);
+  --accent-line: rgb(74 163 216 / 0.45);
+  --selection: rgb(74 163 216 / 0.3);
+
+  --danger: #f0665f;
+  --success: #93a806;
+
+  --canvas-1: #ef4f4c;
+  --canvas-2: #e2662b;
+  --canvas-3: #cfa32a;
+  --canvas-4: #93a806;
+  --canvas-5: #35b3a8;
+  --canvas-6: #8a8ed6;
+  --canvas-dot: #0f4653;
+
+  --scrollbar: #175a68;
+  --scrollbar-hover: #226f7f;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.72);
+
+  --callout-note: #4aa3d8;
+  --callout-warning: #cfa32a;
+
+  --search-select-text-color: #002b36;
+}

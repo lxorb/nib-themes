@@ -1,0 +1,118 @@
+/* A starting point. Copy this folder to themes/<your-id>/, set the same id in
+   theme.json, and change the colours.
+
+   Every value here is Nib's own, so the theme validates and does nothing until
+   you edit it. Delete what you do not want to change: a token you leave out
+   keeps the value the app already has, which is usually better than a value you
+   picked to fill a gap.
+
+   If your theme is one scheme only, delete the block for the other one and take
+   it out of "variants" as well. The two have to agree.
+
+   Check it before you open a pull request:
+
+     node tools/validate.mjs
+     node tools/index.mjs */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* The surface ladder. Each step is one further from the background, and the
+     app reaches for them in this order as things stack. */
+  --bg: #fbfcfd;
+  --surface: #f3f5f8;
+  --surface-2: #eaeef3;
+  --surface-3: #dfe5ec;
+  --press: #d3dbe5;
+
+  /* Dividers, and dividers that have to be seen. */
+  --line: #e1e6ed;
+  --line-strong: #ccd4de;
+
+  /* Text, from the quietest label to the loudest heading. Keep body text at 7:1
+     on the background and anything muted at 4.5:1. */
+  --muted: #8a93a2;
+  --muted-strong: #646d7c;
+  --text: #1a1d23;
+  --text-strong: #0b0d10;
+
+  /* The one colour that means something. `soft` fills, `line` outlines, and
+     `selection` is what the reader drags over their own words. */
+  --accent: #5b4be0;
+  --accent-hover: #4e3ed6;
+  --accent-press: #4131c2;
+  --accent-soft: rgb(91 75 224 / 0.1);
+  --accent-line: rgb(91 75 224 / 0.38);
+  --selection: rgb(91 75 224 / 0.18);
+
+  --danger: #d92b34;
+  --success: #16a06a;
+
+  /* The six colours JSON Canvas names by number, in the spec's order, and the
+     dots of the plane behind them. */
+  --canvas-1: #e93147;
+  --canvas-2: #ec7500;
+  --canvas-3: #d9a600;
+  --canvas-4: #08b94e;
+  --canvas-5: #00b3b0;
+  --canvas-6: #7852ee;
+  --canvas-dot: #d5dce5;
+
+  --scrollbar: #c3cbd6;
+  --scrollbar-hover: #a7b1bf;
+
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --shadow-md: 0 8px 24px -6px rgb(16 24 40 / 0.12);
+  --shadow-lg: 0 24px 64px -12px rgb(16 24 40 / 0.18);
+
+  /* The two callout kinds with a colour of their own. The other three follow
+     --success, --accent and --danger. */
+  --callout-note: #4a8df6;
+  --callout-warning: #e0a233;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0e1013;
+  --surface: #14171c;
+  --surface-2: #1a1e25;
+  --surface-3: #222831;
+  --press: #2a313c;
+
+  --line: #232830;
+  --line-strong: #2f3641;
+
+  --muted: #767e8c;
+  --muted-strong: #9aa3b2;
+  --text: #dde2ea;
+  --text-strong: #f4f7fb;
+
+  --accent: #7c6bf5;
+  --accent-hover: #8d7ef7;
+  --accent-press: #6a58ef;
+  --accent-soft: rgb(124 107 245 / 0.15);
+  --accent-line: rgb(124 107 245 / 0.42);
+  --selection: rgb(124 107 245 / 0.28);
+
+  --danger: #f2555a;
+  --success: #3fcf8e;
+
+  --canvas-1: #fb464c;
+  --canvas-2: #e9973f;
+  --canvas-3: #e0de71;
+  --canvas-4: #44cf6e;
+  --canvas-5: #53dfdd;
+  --canvas-6: #a882ff;
+  --canvas-dot: #2b323d;
+
+  --scrollbar: #39404d;
+  --scrollbar-hover: #4d5665;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.7);
+
+  --callout-note: #4a8df6;
+  --callout-warning: #e0a233;
+}

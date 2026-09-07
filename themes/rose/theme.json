@@ -1,0 +1,11 @@
+{
+  "id": "rose",
+  "name": "Rose",
+  "author": "Emil Vinu",
+  "version": "1.0.0",
+  "description": "A quiet neutral ground with one rose accent carrying the whole theme.",
+  "tags": ["light", "dark", "rose"],
+  "licence": "MIT",
+  "variants": ["light", "dark"],
+  "updated": "2026-09-07"
+}

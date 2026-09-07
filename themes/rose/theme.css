@@ -1,0 +1,100 @@
+/* Rose: one colour, used sparingly.
+
+   The surfaces are neutral with the smallest amount of red in them, so nothing
+   competes with the accent. Everything that means something in the app, the
+   selection, the active note, a focused field, is the same rose, and the rest
+   of the theme stays out of the way. */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #fcfaf9;
+  --surface: #f6f1f1;
+  --surface-2: #efe8e9;
+  --surface-3: #e5dbdd;
+  --press: #d8cccf;
+
+  --line: #ece4e5;
+  --line-strong: #d0c2c5;
+
+  --muted: #766a6e;
+  --muted-strong: #584c50;
+  --text: #241f21;
+  --text-strong: #100d0e;
+
+  --accent: #b02e5a;
+  --accent-hover: #9b2650;
+  --accent-press: #851f43;
+  --accent-soft: rgb(176 46 90 / 0.1);
+  --accent-line: rgb(176 46 90 / 0.38);
+  --selection: rgb(176 46 90 / 0.18);
+
+  --danger: #c0271f;
+  --success: #1f7a52;
+
+  --canvas-1: #c2314a;
+  --canvas-2: #b8651f;
+  --canvas-3: #9c7c14;
+  --canvas-4: #2f7a4f;
+  --canvas-5: #22807c;
+  --canvas-6: #7a4ea8;
+  --canvas-dot: #ded1d4;
+
+  --scrollbar: #cfc0c4;
+  --scrollbar-hover: #b3a2a7;
+
+  --shadow-sm: 0 1px 2px rgb(60 30 40 / 0.08);
+  --shadow-md: 0 8px 24px -6px rgb(60 30 40 / 0.14);
+  --shadow-lg: 0 24px 64px -12px rgb(60 30 40 / 0.2);
+
+  --callout-note: #2f6a9e;
+  --callout-warning: #9c7c14;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #131011;
+  --surface: #1a1618;
+  --surface-2: #221d1f;
+  --surface-3: #2b2427;
+  --press: #352c30;
+
+  --line: #241f21;
+  --line-strong: #322a2d;
+
+  --muted: #8d8085;
+  --muted-strong: #ada0a5;
+  --text: #e5dde0;
+  --text-strong: #f8f4f5;
+
+  --accent: #ef6f9b;
+  --accent-hover: #f487ab;
+  --accent-press: #e05a89;
+  --accent-soft: rgb(239 111 155 / 0.16);
+  --accent-line: rgb(239 111 155 / 0.44);
+  --selection: rgb(239 111 155 / 0.3);
+
+  --danger: #ee6b64;
+  --success: #4ec08c;
+
+  --canvas-1: #e8676c;
+  --canvas-2: #d98e4a;
+  --canvas-3: #cbb964;
+  --canvas-4: #5fbd85;
+  --canvas-5: #56bcb8;
+  --canvas-6: #a98ede;
+  --canvas-dot: #2a2326;
+
+  --scrollbar: #3a3134;
+  --scrollbar-hover: #4d4245;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.62);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.74);
+
+  --callout-note: #7fa8d4;
+  --callout-warning: #d3a45f;
+
+  --search-select-text-color: #131011;
+}

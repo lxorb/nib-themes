@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "nib-themes",
+  "description": "The theme registry for Nib.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tools/*.test.mjs",
+    "validate": "node tools/validate.mjs",
+    "index": "node tools/index.mjs",
+    "check": "npm run test && npm run validate && node tools/index.mjs --check && node tools/no-em-dash.mjs"
+  }
+}

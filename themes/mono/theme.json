@@ -1,0 +1,11 @@
+{
+  "id": "mono",
+  "name": "Mono",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "Grey all the way down, including the accent and the canvas colours.",
+  "tags": ["light", "dark", "monochrome"],
+  "licence": "CC0-1.0",
+  "variants": ["light", "dark"],
+  "updated": "2026-09-07"
+}

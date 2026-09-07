@@ -1,0 +1,105 @@
+/* Mono: no hue anywhere. Every colour in both schemes has equal red, green and
+   blue, the accent included, so nothing in the app is coloured and the only
+   things with any colour left are the words and the images in a note.
+
+   That costs something. The six canvas colours become six greys and the callout
+   kinds become four, and they are told apart by weight rather than hue, which is
+   less legible than the colours they replace. It is the point of the theme
+   rather than an oversight: what is left is a light and a dark grey ladder, and
+   attention goes where the darkest or the lightest thing is. */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #fbfbfb;
+  --surface: #f3f3f3;
+  --surface-2: #eaeaea;
+  --surface-3: #dcdcdc;
+  --press: #cccccc;
+
+  --line: #e3e3e3;
+  --line-strong: #c9c9c9;
+
+  --muted: #6b6b6b;
+  --muted-strong: #4a4a4a;
+  --text: #1c1c1c;
+  --text-strong: #000000;
+
+  --accent: #3d3d3d;
+  --accent-hover: #292929;
+  --accent-press: #141414;
+  --accent-soft: rgb(61 61 61 / 0.09);
+  --accent-line: rgb(61 61 61 / 0.4);
+  --selection: rgb(0 0 0 / 0.14);
+
+  /* Weight instead of hue: danger is the darkest thing on the page and success
+     sits a long way above it. */
+  --danger: #1f1f1f;
+  --success: #595959;
+
+  --canvas-1: #3a3a3a;
+  --canvas-2: #555555;
+  --canvas-3: #6f6f6f;
+  --canvas-4: #8a8a8a;
+  --canvas-5: #a4a4a4;
+  --canvas-6: #bfbfbf;
+  --canvas-dot: #d8d8d8;
+
+  --scrollbar: #c4c4c4;
+  --scrollbar-hover: #a0a0a0;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.14);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.2);
+
+  --callout-note: #757575;
+  --callout-warning: #4f4f4f;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #101010;
+  --surface: #171717;
+  --surface-2: #1f1f1f;
+  --surface-3: #292929;
+  --press: #333333;
+
+  --line: #222222;
+  --line-strong: #303030;
+
+  --muted: #808080;
+  --muted-strong: #a3a3a3;
+  --text: #e0e0e0;
+  --text-strong: #fafafa;
+
+  --accent: #b0b0b0;
+  --accent-hover: #c4c4c4;
+  --accent-press: #9a9a9a;
+  --accent-soft: rgb(176 176 176 / 0.14);
+  --accent-line: rgb(176 176 176 / 0.45);
+  --selection: rgb(255 255 255 / 0.18);
+
+  --danger: #f0f0f0;
+  --success: #949494;
+
+  --canvas-1: #d6d6d6;
+  --canvas-2: #bcbcbc;
+  --canvas-3: #a2a2a2;
+  --canvas-4: #888888;
+  --canvas-5: #6e6e6e;
+  --canvas-6: #545454;
+  --canvas-dot: #262626;
+
+  --scrollbar: #3a3a3a;
+  --scrollbar-hover: #4f4f4f;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.62);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.74);
+
+  --callout-note: #8c8c8c;
+  --callout-warning: #b8b8b8;
+
+  --search-select-text-color: #101010;
+}

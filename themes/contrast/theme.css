@@ -1,0 +1,107 @@
+/* Contrast: pure black on white, and pure white on black. Body text is at 21:1
+   in both schemes, which is as far as a screen goes.
+
+   The lines are the other half of it. Nib's own dividers are a step away from
+   the surface they sit on, which is right for a quiet theme and useless to
+   somebody who cannot see them, so here they are dark grey on white and light
+   grey on black: a border in this theme is a line you can find. */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #f2f2f2;
+  --surface-2: #e4e4e4;
+  --surface-3: #d0d0d0;
+  --press: #b8b8b8;
+
+  --line: #4d4d4d;
+  --line-strong: #000000;
+
+  --muted: #454545;
+  --muted-strong: #1f1f1f;
+  --text: #000000;
+  --text-strong: #000000;
+
+  --accent: #0b2fbf;
+  --accent-hover: #08249b;
+  --accent-press: #051a75;
+  --accent-soft: rgb(11 47 191 / 0.14);
+  --accent-line: rgb(11 47 191 / 0.7);
+  --selection: rgb(11 47 191 / 0.24);
+
+  --danger: #a10010;
+  --success: #005b2f;
+
+  --canvas-1: #c00018;
+  --canvas-2: #a34500;
+  --canvas-3: #7a5c00;
+  --canvas-4: #005c22;
+  --canvas-5: #005e5c;
+  --canvas-6: #4b1fa8;
+  --canvas-dot: #9a9a9a;
+
+  --scrollbar: #6b6b6b;
+  --scrollbar-hover: #333333;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.24);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.36);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.48);
+
+  --callout-note: #0b2fbf;
+  --callout-warning: #7a5c00;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #000000;
+  --surface: #121212;
+  --surface-2: #1f1f1f;
+  --surface-3: #2e2e2e;
+  --press: #404040;
+
+  --line: #b0b0b0;
+  --line-strong: #ffffff;
+
+  --muted: #c4c4c4;
+  --muted-strong: #e8e8e8;
+  --text: #ffffff;
+  --text-strong: #ffffff;
+
+  --accent: #8ab6ff;
+  --accent-hover: #a6c8ff;
+  --accent-press: #6d9ff0;
+  --accent-soft: rgb(138 182 255 / 0.22);
+  --accent-line: rgb(138 182 255 / 0.8);
+  --selection: rgb(138 182 255 / 0.34);
+
+  --danger: #ff8a8a;
+  --success: #6ee79f;
+
+  --canvas-1: #ff7b7b;
+  --canvas-2: #ffb35c;
+  --canvas-3: #ffe066;
+  --canvas-4: #6ee79f;
+  --canvas-5: #66e6e0;
+  --canvas-6: #c0a6ff;
+  --canvas-dot: #5a5a5a;
+
+  --scrollbar: #8f8f8f;
+  --scrollbar-hover: #d4d4d4;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.9);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.9);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.9);
+
+  --callout-note: #8ab6ff;
+  --callout-warning: #ffcf5c;
+
+  --search-select-text-color: #000000;
+}
+
+/* Underlines that are actually visible, and clear of the letters below them. */
+#write a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

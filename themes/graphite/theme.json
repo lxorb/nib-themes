@@ -1,0 +1,11 @@
+{
+  "id": "graphite",
+  "name": "Graphite",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "Near neutral greys with a cool steel blue accent, for working at night.",
+  "tags": ["dark", "grey", "neutral"],
+  "licence": "MIT",
+  "variants": ["dark"],
+  "updated": "2026-09-07"
+}

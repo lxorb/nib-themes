@@ -1,0 +1,11 @@
+{
+  "id": "solar",
+  "name": "Solar",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "Solarized base tones with a blue accent and yellow highlights, in both schemes.",
+  "tags": ["light", "dark", "solarized"],
+  "licence": "MIT",
+  "variants": ["light", "dark"],
+  "updated": "2026-09-07"
+}

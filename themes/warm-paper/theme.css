@@ -1,0 +1,69 @@
+/* Warm Paper: a light theme for daylight, built on cream rather than white.
+   The ground is a warm off-white and the text is a brown black, so the page
+   reads like paper under a lamp instead of a lit panel. The accent is
+   terracotta, which is the one saturated colour here and stays quiet next to
+   the ochre lines. */
+
+:root {
+  /* The one theme in the set that is partly about type. A serif at the size Nib
+     sets reads slower and more evenly, which suits long prose. Every name has a
+     real fallback behind it, so a machine with none of them still gets a
+     serif. */
+  --font-content: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #faf6ee;
+  --surface: #f4eee2;
+  --surface-2: #ece4d5;
+  --surface-3: #e1d7c4;
+  --press: #d4c8b1;
+
+  --line: #e6dcc9;
+  --line-strong: #cfc2a8;
+
+  --muted: #6e6353;
+  --muted-strong: #544b3f;
+  --text: #2b2620;
+  --text-strong: #14100c;
+
+  --accent: #a8542a;
+  --accent-hover: #94481f;
+  --accent-press: #7d3b17;
+  --accent-soft: rgb(168 84 42 / 0.1);
+  --accent-line: rgb(168 84 42 / 0.38);
+  --selection: rgb(168 84 42 / 0.2);
+
+  --danger: #b3261e;
+  --success: #2f7a4d;
+
+  /* The six canvas colours, warmed to sit on cream. They keep the order and the
+     hues the JSON Canvas spec numbers, so a canvas coloured here still reads
+     right in another app. */
+  --canvas-1: #c3402f;
+  --canvas-2: #c07414;
+  --canvas-3: #a98a12;
+  --canvas-4: #4f7f3c;
+  --canvas-5: #2f8079;
+  --canvas-6: #7a5aa8;
+  --canvas-dot: #ded3bd;
+
+  --scrollbar: #cdc0a9;
+  --scrollbar-hover: #b3a389;
+
+  /* Shadows carry a little of the paper's warmth, because a neutral grey shadow
+     on a cream ground reads as dirt. */
+  --shadow-sm: 0 1px 2px rgb(74 56 32 / 0.08);
+  --shadow-md: 0 8px 24px -6px rgb(74 56 32 / 0.14);
+  --shadow-lg: 0 24px 64px -12px rgb(74 56 32 / 0.2);
+
+  --callout-note: #2f6a9e;
+  --callout-warning: #a97c12;
+}
+
+/* A quote in a serif page wants the italic it would have had in print. */
+#write blockquote {
+  font-style: italic;
+}

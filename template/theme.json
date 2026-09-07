@@ -1,0 +1,11 @@
+{
+  "id": "template",
+  "name": "Template",
+  "author": "Your Name",
+  "version": "1.0.0",
+  "description": "One short sentence about the mood of the theme, up to 120 characters.",
+  "tags": ["light", "dark"],
+  "licence": "MIT",
+  "variants": ["light", "dark"],
+  "updated": "2026-09-07"
+}
