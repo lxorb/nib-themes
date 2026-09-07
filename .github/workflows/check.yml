@@ -1,0 +1,33 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # The rules have their own tests, and they run first: a validator that is
+      # broken would pass everything below it.
+      - name: rules
+        run: node --test tools/*.test.mjs
+
+      - name: themes
+        run: node tools/validate.mjs
+
+      # index.json is committed, so this is what catches a theme that changed
+      # without it. No bot commits anything here.
+      - name: index
+        run: node tools/index.mjs --check
+
+      - name: writing
+        run: node tools/no-em-dash.mjs
