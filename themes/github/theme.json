@@ -4,7 +4,7 @@
   "author": "Nib",
   "version": "1.0.0",
   "description": "After Typora's GitHub theme: white, Open Sans, blue links and a rule under every h1 and h2.",
-  "tags": ["light", "github", "typora"],
+  "tags": ["light", "sans", "typora"],
   "licence": "MIT",
   "variants": ["light"],
   "updated": "2026-09-08"
