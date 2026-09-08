@@ -1,0 +1,11 @@
+{
+  "id": "pixyll",
+  "name": "Pixyll",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "After Typora's Pixyll theme: heavy Lato headings over a large light serif, black on white.",
+  "tags": ["light", "serif", "typora"],
+  "licence": "MIT",
+  "variants": ["light"],
+  "updated": "2026-09-08"
+}
