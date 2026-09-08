@@ -1,0 +1,177 @@
+/* GitHub: Typora's built-in GitHub theme, rebuilt on Nib's tokens.
+
+   Written from the values in Typora's own themes/github.css rather than copied
+   from it: white page, Open Sans at 16px on a 1.6 leading, a 860px measure,
+   #4183C4 links with no underline until you point at one, and the hairline rule
+   under every h1 and h2 that is the whole signature of the thing.
+
+   Two places where Nib keeps its own way, both of them named in the rules below:
+   the app's chrome stays in Nib's own font and shapes, and the table has no
+   striped rows, because a theme may say how a row looks and not which rows. */
+
+:root {
+  /* Typora ships Open Sans inside the theme folder. A Nib theme may not fetch a
+     font, so the name is asked for and a humanist sans stands behind it on every
+     machine that does not have it. */
+  --font-content: 'Open Sans', 'Clear Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --text-content: calc(16px * var(--zoom));
+  --leading-content: 1.6;
+  /* 860px, the width the original sets, in Nib's rem of 15px. */
+  --measure: 57.3rem;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --surface-2: #f3f4f4;
+  --surface-3: #eaecef;
+  --press: #dbdfe4;
+
+  /* The rule under a heading, and the line around a table cell. */
+  --line: #eeeeee;
+  --line-strong: #dfe2e5;
+
+  --muted: #777777;
+  --muted-strong: #586069;
+  --text: #333333;
+  /* One step past the body, which the original does not have: Nib stacks a
+     strong text colour above the ordinary one and needs somewhere to put it. */
+  --text-strong: #24292e;
+
+  --accent: #4183c4;
+  --accent-hover: #3572ad;
+  --accent-press: #2c5f95;
+  --accent-soft: rgb(65 131 196 / 0.1);
+  --accent-line: rgb(65 131 196 / 0.4);
+  /* Typora's own selection blue, which is opaque rather than a wash. */
+  --selection: #b5d6fc;
+
+  --danger: #cb2431;
+  --success: #22863a;
+
+  /* GitHub's syntax palette, in the order JSON Canvas numbers its colours. */
+  --canvas-1: #d73a49;
+  --canvas-2: #e36209;
+  --canvas-3: #b08800;
+  --canvas-4: #22863a;
+  --canvas-5: #1b7c83;
+  --canvas-6: #6f42c1;
+  --canvas-dot: #e1e4e8;
+
+  --scrollbar: #d1d5da;
+  --scrollbar-hover: #959da5;
+
+  --shadow-sm: 0 1px 2px rgb(27 31 35 / 0.08);
+  --shadow-md: 0 8px 24px -6px rgb(27 31 35 / 0.14);
+  --shadow-lg: 0 24px 64px -12px rgb(27 31 35 / 0.2);
+
+  --callout-note: #4183c4;
+  --callout-warning: #b08800;
+
+  /* The sidebar is a shade off the page, which is the original's one statement
+     about the app around the words. */
+  --side-bar-bg-color: #fafafa;
+  --control-text-color: #777777;
+  --md-char-color: #a7a7a7;
+}
+
+/* Headings in the body's own font, bold, and no tighter than they were set. */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-family: var(--font-content);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: normal;
+  margin: 1em 0;
+}
+
+#write h1 {
+  font-size: 2.25em;
+  line-height: 1.2;
+  padding: 0 0 0.3em;
+  border-bottom: 1px solid var(--line);
+}
+
+#write h2 {
+  font-size: 1.75em;
+  line-height: 1.225;
+  padding: 0 0 0.3em;
+  border-bottom: 1px solid var(--line);
+}
+
+#write h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+#write h4 {
+  font-size: 1.25em;
+}
+
+#write h5 {
+  font-size: 1em;
+}
+
+#write h6 {
+  font-size: 1em;
+  color: var(--muted);
+}
+
+/* Everything sits on the same 0.8em rhythm, which is tighter than Nib's. */
+#write p,
+#write ul,
+#write ol,
+#write table {
+  margin: 0.8em 0;
+}
+
+/* Blue, and no line under it until the pointer is there. */
+#write a {
+  border-bottom: none;
+}
+
+/* Three pixels of radius rather than Nib's nine: a GitHub code box is nearly
+   square, and that is most of why the page reads the way it does. */
+#write code {
+  background: var(--surface-2);
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 0.1em 0.25em;
+}
+
+#write pre {
+  background: var(--surface);
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 0.5em 0.85em;
+  margin: 0.94em 0;
+}
+
+#write blockquote {
+  border-left: 4px solid var(--line-strong);
+  color: var(--muted);
+  margin: 0.8em 0;
+  padding: 0 0 0 15px;
+}
+
+#write th,
+#write td {
+  padding: 6px 13px;
+}
+
+/* A two pixel bar rather than Nib's hairline. A theme may not set a height, so
+   the rule is drawn as a border: the box is one pixel tall and border-box sizing
+   lets the border stand it up to two. */
+#write hr {
+  background: none;
+  border-top: 2px solid #e7e7e7;
+  margin: 1.6em 0;
+}
