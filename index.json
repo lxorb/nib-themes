@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07",
+  "generated": "2026-09-08",
   "themes": [
     {
       "id": "contrast",
@@ -90,6 +90,68 @@
           "--callout-warning": "#ffcf5c",
           "--search-select-text-color": "#000000"
         }
+      }
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "author": "Nib",
+      "version": "1.0.0",
+      "description": "After Typora's GitHub theme: white, Open Sans, blue links and a rule under every h1 and h2.",
+      "tags": [
+        "light",
+        "github",
+        "typora"
+      ],
+      "licence": "MIT",
+      "variants": [
+        "light"
+      ],
+      "updated": "2026-09-08",
+      "palettes": {
+        "light": {
+          "--font-content": "'Open Sans', 'Clear Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif",
+          "--text-content": "calc(16px * var(--zoom))",
+          "--leading-content": "1.6",
+          "--measure": "57.3rem",
+          "--bg": "#ffffff",
+          "--surface": "#f8f8f8",
+          "--surface-2": "#f3f4f4",
+          "--surface-3": "#eaecef",
+          "--press": "#dbdfe4",
+          "--line": "#eeeeee",
+          "--line-strong": "#dfe2e5",
+          "--muted": "#777777",
+          "--muted-strong": "#586069",
+          "--text": "#333333",
+          "--text-strong": "#24292e",
+          "--accent": "#4183c4",
+          "--accent-hover": "#3572ad",
+          "--accent-press": "#2c5f95",
+          "--accent-soft": "rgb(65 131 196 / 0.1)",
+          "--accent-line": "rgb(65 131 196 / 0.4)",
+          "--selection": "#b5d6fc",
+          "--danger": "#cb2431",
+          "--success": "#22863a",
+          "--canvas-1": "#d73a49",
+          "--canvas-2": "#e36209",
+          "--canvas-3": "#b08800",
+          "--canvas-4": "#22863a",
+          "--canvas-5": "#1b7c83",
+          "--canvas-6": "#6f42c1",
+          "--canvas-dot": "#e1e4e8",
+          "--scrollbar": "#d1d5da",
+          "--scrollbar-hover": "#959da5",
+          "--shadow-sm": "0 1px 2px rgb(27 31 35 / 0.08)",
+          "--shadow-md": "0 8px 24px -6px rgb(27 31 35 / 0.14)",
+          "--shadow-lg": "0 24px 64px -12px rgb(27 31 35 / 0.2)",
+          "--callout-note": "#4183c4",
+          "--callout-warning": "#b08800",
+          "--side-bar-bg-color": "#fafafa",
+          "--control-text-color": "#777777",
+          "--md-char-color": "#a7a7a7"
+        },
+        "dark": {}
       }
     },
     {
@@ -237,6 +299,132 @@
           "--callout-warning": "#b8b8b8",
           "--search-select-text-color": "#101010"
         }
+      }
+    },
+    {
+      "id": "newsprint",
+      "name": "Newsprint",
+      "author": "Nib",
+      "version": "1.0.0",
+      "description": "After Typora's Newsprint theme: PT Serif on grey paper, a ruled masthead and italic quotes.",
+      "tags": [
+        "light",
+        "serif",
+        "newspaper",
+        "typora"
+      ],
+      "licence": "MIT",
+      "variants": [
+        "light"
+      ],
+      "updated": "2026-09-08",
+      "palettes": {
+        "light": {
+          "--font-content": "'PT Serif', Charter, Georgia, 'Times New Roman', Times, serif",
+          "--text-content": "calc(16px * var(--zoom))",
+          "--leading-content": "1.5",
+          "--measure": "42.7rem",
+          "--bg": "#f3f2ee",
+          "--surface": "#eceae4",
+          "--surface-2": "#e4e2db",
+          "--surface-3": "#dadada",
+          "--press": "#c9c7c0",
+          "--line": "#dfded7",
+          "--line-strong": "#c5c5c5",
+          "--muted": "#656565",
+          "--muted-strong": "#444444",
+          "--text": "#1f0909",
+          "--text-strong": "#140505",
+          "--accent": "#065588",
+          "--accent-hover": "#054a78",
+          "--accent-press": "#043b5e",
+          "--accent-soft": "rgb(6 85 136 / 0.1)",
+          "--accent-line": "rgb(6 85 136 / 0.35)",
+          "--selection": "rgb(32 43 51 / 0.26)",
+          "--danger": "#9d1c14",
+          "--success": "#2f6a3c",
+          "--canvas-1": "#b32c22",
+          "--canvas-2": "#a86222",
+          "--canvas-3": "#8c7411",
+          "--canvas-4": "#3f6f3c",
+          "--canvas-5": "#2c6c72",
+          "--canvas-6": "#5b4a90",
+          "--canvas-dot": "#dcdbd4",
+          "--scrollbar": "#c9c8c1",
+          "--scrollbar-hover": "#aeada6",
+          "--shadow-sm": "0 1px 2px rgb(40 30 20 / 0.09)",
+          "--shadow-md": "0 8px 24px -6px rgb(40 30 20 / 0.15)",
+          "--shadow-lg": "0 24px 64px -12px rgb(40 30 20 / 0.21)",
+          "--callout-note": "#065588",
+          "--callout-warning": "#8c7411",
+          "--code-block-bg-color": "#dadada",
+          "--blockquote-border-color": "#bababa",
+          "--control-text-color": "#444444",
+          "--md-char-color": "#999999"
+        },
+        "dark": {}
+      }
+    },
+    {
+      "id": "pixyll",
+      "name": "Pixyll",
+      "author": "Nib",
+      "version": "1.0.0",
+      "description": "After Typora's Pixyll theme: heavy Lato headings over a large light serif, black on white.",
+      "tags": [
+        "light",
+        "serif",
+        "typora"
+      ],
+      "licence": "MIT",
+      "variants": [
+        "light"
+      ],
+      "updated": "2026-09-08",
+      "palettes": {
+        "light": {
+          "--font-content": "Merriweather, 'PT Serif', Georgia, 'Times New Roman', serif",
+          "--font-mono": "Menlo, Monaco, Consolas, 'Courier New', monospace",
+          "--text-content": "calc(17.5px * var(--zoom))",
+          "--leading-content": "1.8",
+          "--measure": "60.9rem",
+          "--bg": "#ffffff",
+          "--surface": "#f7f7f7",
+          "--surface-2": "#f0f0f0",
+          "--surface-3": "#e6e6e6",
+          "--press": "#d6d6d6",
+          "--line": "#e2e2e2",
+          "--line-strong": "#c9c9c9",
+          "--muted": "#7a7a7a",
+          "--muted-strong": "#555555",
+          "--text": "#333333",
+          "--text-strong": "#1b1b1b",
+          "--accent": "#463f5c",
+          "--accent-hover": "#5a5175",
+          "--accent-press": "#362f47",
+          "--accent-soft": "rgb(70 63 92 / 0.09)",
+          "--accent-line": "rgb(70 63 92 / 0.45)",
+          "--selection": "#b5d6fc",
+          "--danger": "#a32b2b",
+          "--success": "#2c6e4b",
+          "--canvas-1": "#a32b2b",
+          "--canvas-2": "#a06026",
+          "--canvas-3": "#85701f",
+          "--canvas-4": "#3f7350",
+          "--canvas-5": "#2f6f74",
+          "--canvas-6": "#463f5c",
+          "--canvas-dot": "#e0e0e0",
+          "--scrollbar": "#cfcfcf",
+          "--scrollbar-hover": "#a5a5a5",
+          "--shadow-sm": "0 1px 2px rgb(0 0 0 / 0.07)",
+          "--shadow-md": "0 8px 24px -6px rgb(0 0 0 / 0.13)",
+          "--shadow-lg": "0 24px 64px -12px rgb(0 0 0 / 0.19)",
+          "--callout-note": "#3f5f8a",
+          "--callout-warning": "#85701f",
+          "--control-text-color": "#777777",
+          "--md-char-color": "#b4b4b4"
+        },
+        "dark": {}
       }
     },
     {
