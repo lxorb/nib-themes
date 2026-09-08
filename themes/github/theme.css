@@ -33,18 +33,24 @@
   --line: #eeeeee;
   --line-strong: #dfe2e5;
 
-  --muted: #777777;
+  /* GitHub's own secondary grey rather than the theme's #777. The registry asks
+     that anything muted clear 4.5:1 on the surface it sits on, and #777 is at
+     4.2 there; this is the same grey one step down and it clears it. */
+  --muted: #6a737d;
   --muted-strong: #586069;
   --text: #333333;
   /* One step past the body, which the original does not have: Nib stacks a
      strong text colour above the ordinary one and needs somewhere to put it. */
   --text-strong: #24292e;
 
-  --accent: #4183c4;
-  --accent-hover: #3572ad;
-  --accent-press: #2c5f95;
-  --accent-soft: rgb(65 131 196 / 0.1);
-  --accent-line: rgb(65 131 196 / 0.4);
+  /* The link blue, one shade deeper than the theme's #4183c4. That blue is at
+     3.99:1 on white, and the accent is text here: it is the link, and it is what
+     the app writes white on. This is the nearest blue that clears 4.5. */
+  --accent: #3a79b5;
+  --accent-hover: #33689d;
+  --accent-press: #2c5a88;
+  --accent-soft: rgb(58 121 181 / 0.1);
+  --accent-line: rgb(58 121 181 / 0.4);
   /* Typora's own selection blue, which is opaque rather than a wash. */
   --selection: #b5d6fc;
 
@@ -67,13 +73,13 @@
   --shadow-md: 0 8px 24px -6px rgb(27 31 35 / 0.14);
   --shadow-lg: 0 24px 64px -12px rgb(27 31 35 / 0.2);
 
-  --callout-note: #4183c4;
+  --callout-note: #3a79b5;
   --callout-warning: #b08800;
 
   /* The sidebar is a shade off the page, which is the original's one statement
      about the app around the words. */
   --side-bar-bg-color: #fafafa;
-  --control-text-color: #777777;
+  --control-text-color: #6a737d;
   --md-char-color: #a7a7a7;
 }
 
