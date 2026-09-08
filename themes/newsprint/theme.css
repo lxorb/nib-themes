@@ -1,0 +1,184 @@
+/* Newsprint: Typora's built-in Newsprint theme, rebuilt on Nib's tokens.
+
+   Written from the values in Typora's own themes/newsprint.css rather than
+   copied from it: a warm grey paper at #f3f2ee, PT Serif at 16px on a 1.5
+   leading, a 40em measure, a masthead h1 set light with a whole rule under it,
+   quotes in italic behind a heavy bar, and table heads in capitals with no cell
+   rules at all.
+
+   Where Nib keeps its own way, and says so in the rules below: no striped rows,
+   because a theme may say how a row looks and not which rows; and the selection
+   is a wash over the words rather than a slate block with the words reversed
+   out of it, because Nib gives a theme the colour behind a selection and not the
+   colour of the letters in one. */
+
+:root {
+  /* PT Serif is what Typora ships inside the theme folder. A Nib theme may not
+     fetch a font, so the name is asked for and the transitional serifs a machine
+     already has stand behind it. */
+  --font-content: 'PT Serif', Charter, Georgia, 'Times New Roman', Times, serif;
+  --text-content: calc(16px * var(--zoom));
+  --leading-content: 1.5;
+  /* 40em of the original's 16px text, which is 640px, in Nib's rem of 15px. */
+  --measure: 42.7rem;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f3f2ee;
+  --surface: #eceae4;
+  --surface-2: #e4e2db;
+  /* The grey a fence and a table head are set on. */
+  --surface-3: #dadada;
+  --press: #c9c7c0;
+
+  --line: #dfded7;
+  --line-strong: #c5c5c5;
+
+  --muted: #656565;
+  --muted-strong: #444444;
+  /* Not black: the original's ink has a little red left in it. */
+  --text: #1f0909;
+  --text-strong: #140505;
+
+  --accent: #065588;
+  --accent-hover: #054a78;
+  --accent-press: #043b5e;
+  --accent-soft: rgb(6 85 136 / 0.1);
+  --accent-line: rgb(6 85 136 / 0.35);
+  --selection: rgb(32 43 51 / 0.26);
+
+  --danger: #9d1c14;
+  --success: #2f6a3c;
+
+  /* Print inks: six colours that hold on a grey ground rather than on white. */
+  --canvas-1: #b32c22;
+  --canvas-2: #a86222;
+  --canvas-3: #8c7411;
+  --canvas-4: #3f6f3c;
+  --canvas-5: #2c6c72;
+  --canvas-6: #5b4a90;
+  --canvas-dot: #dcdbd4;
+
+  --scrollbar: #c9c8c1;
+  --scrollbar-hover: #aeada6;
+
+  --shadow-sm: 0 1px 2px rgb(40 30 20 / 0.09);
+  --shadow-md: 0 8px 24px -6px rgb(40 30 20 / 0.15);
+  --shadow-lg: 0 24px 64px -12px rgb(40 30 20 / 0.21);
+
+  --callout-note: #065588;
+  --callout-warning: #8c7411;
+
+  --code-block-bg-color: #dadada;
+  --blockquote-border-color: #bababa;
+  --control-text-color: #444444;
+  --md-char-color: #999999;
+}
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-family: var(--font-content);
+  letter-spacing: normal;
+}
+
+/* The masthead: set light rather than bold, with a whole rule under it and a
+   long drop before the first line of the story. */
+#write h1 {
+  font-size: 1.875em;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 2em 0 0.5em;
+  padding: 0 0 0.8125em;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+#write h2 {
+  font-size: 1.3125em;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 2.29em 0 0.75em;
+}
+
+/* A section head one step below the last, told apart by weight and not by size,
+   which is how a newspaper does it. */
+#write h3 {
+  font-size: 1.3125em;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 2.29em 0 0.75em;
+}
+
+#write h4 {
+  font-size: 1.125em;
+  font-weight: 700;
+  margin: 2.67em 0 1.5em;
+}
+
+#write h5,
+#write h6 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 2em 0 0.9em;
+}
+
+/* Pulled in from the column and set in italic, the way a quote is in print. */
+#write blockquote {
+  font-style: italic;
+  color: var(--muted);
+  border-left: 5px solid var(--blockquote-border-color);
+  margin: 1.5em 0 1.5em 2em;
+  padding: 0 0 0 1em;
+}
+
+#write a {
+  border-bottom: none;
+}
+
+#write p {
+  margin: 0 0 1.5em;
+}
+
+#write code {
+  background: var(--surface-3);
+  border: none;
+  border-radius: 0;
+  font-size: 0.875em;
+  padding: 0 2px;
+}
+
+/* A fence is a grey column indented with the quotes, and square: the original
+   has no radius anywhere on the page. */
+#write pre {
+  background: var(--surface-3);
+  border: none;
+  border-radius: 0;
+  font-size: 0.875em;
+  line-height: 1.714;
+  margin: 0 0 1.5em 2em;
+  padding: 0.7em 1ch;
+}
+
+/* Newspaper tables: no cell rules, and the head set in capitals on grey. */
+#write th,
+#write td {
+  border: none;
+  padding: 0.25em 0.25em 0.25em 0.4em;
+}
+
+#write th {
+  background: var(--surface-3);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+#write hr {
+  background: var(--line-strong);
+  margin: 2em 0;
+}
