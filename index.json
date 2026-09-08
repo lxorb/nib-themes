@@ -100,7 +100,7 @@
       "description": "After Typora's GitHub theme: white, Open Sans, blue links and a rule under every h1 and h2.",
       "tags": [
         "light",
-        "github",
+        "sans",
         "typora"
       ],
       "licence": "MIT",
@@ -421,6 +421,7 @@
           "--shadow-lg": "0 24px 64px -12px rgb(0 0 0 / 0.19)",
           "--callout-note": "#3f5f8a",
           "--callout-warning": "#85701f",
+          "--code-block-bg-color": "#ffffff",
           "--control-text-color": "#777777",
           "--md-char-color": "#b4b4b4"
         },
