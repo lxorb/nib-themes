@@ -1,0 +1,171 @@
+/* Pixyll: Typora's built-in Pixyll theme, rebuilt on Nib's tokens.
+
+   Written from the values in Typora's own themes/pixyll.css rather than copied
+   from it. The theme is one idea: a heavy sans display over a light serif, set
+   large. Merriweather at 17.5px on a 1.8 leading, Lato bold for every heading,
+   a 914px measure, an h1 near 63px, links that are ink with a line under them,
+   code as grey letters in a thin box with nothing behind it, and a table ruled
+   across in the same ink as the words.
+
+   Typora sizes its headings at three window widths; Nib gives a theme one size,
+   so these are the ones a desktop window gets. Where else Nib keeps its own way
+   is named in the rules below. */
+
+:root {
+  --font-content: Merriweather, 'PT Serif', Georgia, 'Times New Roman', serif;
+  /* The one theme of the three that names its own monospace, so this one sets
+     it and the other two leave Nib's alone. */
+  --font-mono: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --text-content: calc(17.5px * var(--zoom));
+  --leading-content: 1.8;
+  /* 914px, the width the original sets, in Nib's rem of 15px. */
+  --measure: 60.9rem;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #f7f7f7;
+  --surface-2: #f0f0f0;
+  --surface-3: #e6e6e6;
+  --press: #d6d6d6;
+
+  --line: #e2e2e2;
+  --line-strong: #c9c9c9;
+
+  /* The grey everything quiet is set in: code, the fence's box, the quote's
+     bar. One value, used everywhere, which is why the page reads as two
+     colours. */
+  --muted: #7a7a7a;
+  --muted-strong: #555555;
+  --text: #333333;
+  --text-strong: #1b1b1b;
+
+  /* Nearly ink. Pixyll's links are underlined words rather than something
+     brighter than the words around them. */
+  --accent: #463f5c;
+  --accent-hover: #5a5175;
+  --accent-press: #362f47;
+  --accent-soft: rgb(70 63 92 / 0.09);
+  --accent-line: rgb(70 63 92 / 0.45);
+  --selection: #b5d6fc;
+
+  --danger: #a32b2b;
+  --success: #2c6e4b;
+
+  /* Six colours held back to the weight of the rest of the page. */
+  --canvas-1: #a32b2b;
+  --canvas-2: #a06026;
+  --canvas-3: #85701f;
+  --canvas-4: #3f7350;
+  --canvas-5: #2f6f74;
+  --canvas-6: #463f5c;
+  --canvas-dot: #e0e0e0;
+
+  --scrollbar: #cfcfcf;
+  --scrollbar-hover: #a5a5a5;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.07);
+  --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.13);
+  --shadow-lg: 0 24px 64px -12px rgb(0 0 0 / 0.19);
+
+  --callout-note: #3f5f8a;
+  --callout-warning: #85701f;
+
+  --control-text-color: #777777;
+  --md-char-color: #b4b4b4;
+}
+
+/* The display face. Lato, black, tight leading, and none of Nib's tracking:
+   this is the half of the theme you see first. */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-family: Lato, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: 1em 0 0.5em;
+}
+
+#write h1 {
+  font-size: 3.6em;
+}
+
+#write h2 {
+  font-size: 1.83em;
+}
+
+#write h3 {
+  font-size: 1.52em;
+}
+
+#write h4 {
+  font-size: 1.27em;
+}
+
+/* Below the fourth the original stops shouting and drops under the body size,
+   which is a real decision rather than an oversight. */
+#write h5,
+#write h6 {
+  font-size: 0.9em;
+}
+
+/* Set light, which is what Merriweather's 300 weight is for. A machine without
+   it gets the regular weight and loses nothing else. */
+#write p {
+  font-weight: 300;
+  margin: 0 0 1em;
+}
+
+#write a {
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+#write code {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--muted);
+  font-size: 0.85em;
+  padding: 0;
+}
+
+/* A thin box with the page still showing through it. */
+#write pre {
+  background: none;
+  border: 1px solid var(--muted);
+  border-radius: 0;
+  color: var(--muted);
+  font-size: 0.8em;
+  padding: 0.55em 1.125em;
+}
+
+#write blockquote {
+  font-style: italic;
+  color: var(--muted-strong);
+  border-left: 5px solid var(--muted);
+  margin: 1.5em 0;
+  padding: 0 1.33em;
+}
+
+/* Ruled across and nothing down: the lines are in the ink of the words, which
+   is what makes the table part of the page rather than a box on it. */
+#write th,
+#write td {
+  border: none;
+  border-top: 1px solid var(--text);
+  padding: 12px;
+  line-height: 1.2;
+}
+
+#write th {
+  background: none;
+  border-bottom: 2px solid var(--text);
+}
