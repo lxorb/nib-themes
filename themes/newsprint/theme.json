@@ -1,0 +1,11 @@
+{
+  "id": "newsprint",
+  "name": "Newsprint",
+  "author": "Nib",
+  "version": "1.0.0",
+  "description": "After Typora's Newsprint theme: PT Serif on grey paper, a ruled masthead and italic quotes.",
+  "tags": ["light", "serif", "newspaper", "typora"],
+  "licence": "MIT",
+  "variants": ["light"],
+  "updated": "2026-09-08"
+}
