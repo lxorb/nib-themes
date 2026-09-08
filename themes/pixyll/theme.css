@@ -36,8 +36,9 @@
 
   /* The grey everything quiet is set in: code, the fence's box, the quote's
      bar. One value, used everywhere, which is why the page reads as two
-     colours. */
-  --muted: #7a7a7a;
+     colours. A shade darker than the theme's #7a7a7a, which is at 4.0:1 on the
+     surface and under the 4.5 the registry asks of anything muted. */
+  --muted: #6f6f6f;
   --muted-strong: #555555;
   --text: #333333;
   --text-strong: #1b1b1b;
