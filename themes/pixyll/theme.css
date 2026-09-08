@@ -73,6 +73,10 @@
   --callout-note: #3f5f8a;
   --callout-warning: #85701f;
 
+  /* A fence here is a box with the page still showing through it, so the fill
+     behind one is the page. Stated rather than left to follow --surface, which
+     is what the gallery's miniature paints a fence from. */
+  --code-block-bg-color: #ffffff;
   --control-text-color: #777777;
   --md-char-color: #b4b4b4;
 }
