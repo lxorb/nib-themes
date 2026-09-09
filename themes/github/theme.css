@@ -1,89 +1,153 @@
-/* GitHub: Typora's built-in GitHub theme, rebuilt on Nib's tokens.
+/* GitHub, in both schemes, on Nib's tokens.
 
-   Written from the values in Typora's own themes/github.css rather than copied
-   from it: white page, Open Sans at 16px on a 1.6 leading, a 860px measure,
-   #4183C4 links with no underline until you point at one, and the hairline rule
-   under every h1 and h2 that is the whole signature of the thing.
+   Every colour here is one GitHub serves. They were read out of Primer's own
+   primitives - the light and dark theme tokens in primer/primitives - and then
+   checked against the stylesheets github.com actually links, so a value in this
+   file is a value in `light-*.css` or `dark-*.css` on githubassets.com and not
+   an eyeballed match for one. The token each came from is named beside it.
 
-   Two places where Nib keeps its own way, both of them named in the rules below:
-   the app's chrome stays in Nib's own font and shapes, and the table has no
-   striped rows, because a theme may say how a row looks and not which rows. */
+   The shape is GitHub's as well, which is most of why a page reads as GitHub
+   before a single colour is noticed: the hairline rule under h1 and h2, the grey
+   ground under code, the quarter-em quote bar, ruled table cells, and headings
+   at 600 rather than bold.
+
+   Two places where Nib keeps its own way, both named in the rules below: the
+   chrome around the words stays in Nib's font and shapes, and the table has no
+   striped rows, because a theme may say how a row looks and not which rows.
+
+   Readability, measured against `--bg`: light text 15.8:1, dark 17.5:1; muted
+   6.0:1 on the light page and 5.7:1 on its surface, 6.5:1 and 6.0:1 on the dark
+   one; accent, danger and success between 5.1:1 and 7.5:1 in both. The dark
+   accent is a light blue, so what sits on it is dark rather than white. */
 
 :root {
-  /* Typora ships Open Sans inside the theme folder. A Nib theme may not fetch a
-     font, so the name is asked for and a humanist sans stands behind it on every
-     machine that does not have it. */
-  --font-content: 'Open Sans', 'Clear Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* GitHub's own stack, which asks for nothing that has to be fetched: the
+     system's interface face, and whatever the machine has after that. */
+  --font-content: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  /* 16px on a 1.5 leading, which is what `.markdown-body` sets. */
   --text-content: calc(16px * var(--zoom));
-  --leading-content: 1.6;
-  /* 860px, the width the original sets, in Nib's rem of 15px. */
+  --leading-content: 1.5;
+  /* Wide, the way a README is, without going all the way to the 1012px
+     container: 860px in Nib's rem of 15px. */
   --measure: 57.3rem;
 }
 
 [data-theme='light'] {
   color-scheme: light;
 
+  /* bgColor-default, then bgColor-muted and the control ladder above it:
+     rest, hover, active, and one step deeper again for a press. */
   --bg: #ffffff;
-  --surface: #f8f8f8;
-  --surface-2: #f3f4f4;
-  --surface-3: #eaecef;
-  --press: #dbdfe4;
+  --surface: #f6f8fa;
+  --surface-2: #eff2f5;
+  --surface-3: #e6eaef;
+  --press: #dae0e7;
 
-  /* The rule under a heading, and the line around a table cell. */
-  --line: #eeeeee;
-  --line-strong: #dfe2e5;
+  /* borderColor-muted is the hairline under a heading and between table rows;
+     borderColor-default is the line around a cell. */
+  --line: #d1d9e0b3;
+  --line-strong: #d1d9e0;
 
-  /* GitHub's own secondary grey rather than the theme's #777. The registry asks
-     that anything muted clear 4.5:1 on the surface it sits on, and #777 is at
-     4.2 there; this is the same grey one step down and it clears it. */
-  --muted: #6a737d;
-  --muted-strong: #586069;
-  --text: #333333;
-  /* One step past the body, which the original does not have: Nib stacks a
-     strong text colour above the ordinary one and needs somewhere to put it. */
-  --text-strong: #24292e;
+  /* fgColor-muted, and the same role out of GitHub's high contrast theme for
+     the step above it. Primer has no darker step than fgColor-default in light,
+     so the strong text colour is that theme's too. */
+  --muted: #59636e;
+  --muted-strong: #454c54;
+  --text: #1f2328;
+  --text-strong: #010409;
 
-  /* The link blue, one shade deeper than the theme's #4183c4. That blue is at
-     3.99:1 on white, and the accent is text here: it is the link, and it is what
-     the app writes white on. This is the nearest blue that clears 4.5. */
-  --accent: #3a79b5;
-  --accent-hover: #33689d;
-  --accent-press: #2c5a88;
-  --accent-soft: rgb(58 121 181 / 0.1);
-  --accent-line: rgb(58 121 181 / 0.4);
-  /* Typora's own selection blue, which is opaque rather than a wash. */
-  --selection: #b5d6fc;
+  /* fgColor-accent, which is the link, with Primer's blue 6 and 7 under it. */
+  --accent: #0969da;
+  --accent-hover: #0550ae;
+  --accent-press: #033d8b;
+  --accent-soft: #0969da1a;
+  --accent-line: #54aeff66;
+  /* selection-bgColor: what GitHub itself drags over its own words. */
+  --selection: #0969da33;
 
-  --danger: #cb2431;
-  --success: #22863a;
+  --danger: #d1242f;
+  --success: #1a7f37;
 
-  /* GitHub's syntax palette, in the order JSON Canvas numbers its colours. */
-  --canvas-1: #d73a49;
-  --canvas-2: #e36209;
-  --canvas-3: #b08800;
-  --canvas-4: #22863a;
-  --canvas-5: #1b7c83;
-  --canvas-6: #6f42c1;
-  --canvas-dot: #e1e4e8;
+  /* The colours GitHub labels things with, in the order JSON Canvas numbers
+     them: danger, severe, attention, success, accent, done. There is no cyan in
+     Primer, so the fifth is the blue. */
+  --canvas-1: #cf222e;
+  --canvas-2: #bc4c00;
+  --canvas-3: #bf8700;
+  --canvas-4: #1f883d;
+  --canvas-5: #0969da;
+  --canvas-6: #8250df;
+  --canvas-dot: #d1d9e0;
 
-  --scrollbar: #d1d5da;
-  --scrollbar-hover: #959da5;
+  --scrollbar: #c8d1da;
+  --scrollbar-hover: #818b98;
 
-  --shadow-sm: 0 1px 2px rgb(27 31 35 / 0.08);
-  --shadow-md: 0 8px 24px -6px rgb(27 31 35 / 0.14);
-  --shadow-lg: 0 24px 64px -12px rgb(27 31 35 / 0.2);
+  /* shadow-resting-small, shadow-resting-medium and shadow-floating-medium. */
+  --shadow-sm: 0 1px 1px 0 #1f23280a, 0 1px 2px 0 #1f232808;
+  --shadow-md: 0 1px 1px 0 #25292e1a, 0 3px 6px 0 #25292e1f;
+  --shadow-lg: 0 8px 16px -4px #25292e14, 0 4px 32px -4px #25292e14, 0 24px 48px -12px #25292e14;
 
-  --callout-note: #3a79b5;
-  --callout-warning: #b08800;
-
-  /* The sidebar is a shade off the page, which is the original's one statement
-     about the app around the words. */
-  --side-bar-bg-color: #fafafa;
-  --control-text-color: #6a737d;
-  --md-char-color: #a7a7a7;
+  /* GitHub's own alert colours. Tip and caution already follow success and
+     danger, so only these three need saying. */
+  --callout-note: #0969da;
+  --callout-important: #8250df;
+  --callout-warning: #9a6700;
 }
 
-/* Headings in the body's own font, bold, and no tighter than they were set. */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0d1117;
+  --surface: #151b23;
+  --surface-2: #212830;
+  --surface-3: #262c36;
+  --press: #2a313c;
+
+  --line: #3d444db3;
+  --line-strong: #3d444d;
+
+  --muted: #9198a1;
+  --muted-strong: #b7bdc8;
+  --text: #f0f6fc;
+  --text-strong: #ffffff;
+
+  --accent: #4493f8;
+  --accent-hover: #58a6ff;
+  --accent-press: #1f6feb;
+  --accent-soft: #4493f81a;
+  --accent-line: #388bfd66;
+  --selection: #1f6febb3;
+
+  --danger: #f85149;
+  --success: #3fb950;
+
+  --canvas-1: #f85149;
+  --canvas-2: #db6d28;
+  --canvas-3: #d29922;
+  --canvas-4: #3fb950;
+  --canvas-5: #4493f8;
+  --canvas-6: #ab7df8;
+  --canvas-dot: #3d444d;
+
+  --scrollbar: #3d444d;
+  --scrollbar-hover: #656c76;
+
+  --shadow-sm: 0 1px 1px 0 #01040999, 0 1px 3px 0 #01040999;
+  --shadow-md: 0 1px 1px 0 #01040966, 0 3px 6px 0 #010409cc;
+  --shadow-lg: 0 8px 16px -4px #01040966, 0 4px 32px -4px #01040966, 0 24px 48px -12px #01040966;
+
+  --callout-note: #4493f8;
+  --callout-important: #ab7df8;
+  --callout-warning: #d29922;
+
+  /* The dark accent is a light blue, so the text on top of it is the darkest
+     neutral rather than white: white on this blue is 3.1:1. */
+  --search-select-text-color: #010409;
+}
+
+/* Headings in the body's own face at 600, which is what GitHub sets: bold is a
+   step heavier than a GitHub heading has ever been. */
 #write h1,
 #write h2,
 #write h3,
@@ -91,93 +155,126 @@
 #write h5,
 #write h6 {
   font-family: var(--font-content);
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1.25;
   letter-spacing: normal;
-  margin: 1em 0;
 }
 
+/* The rule under the two top levels, which is the signature of the whole thing.
+   Every heading keeps GitHub's 24px above and 16px below, written in each one's
+   own em so it still holds when the reader zooms. */
 #write h1 {
-  font-size: 2.25em;
-  line-height: 1.2;
+  font-size: 2em;
+  margin: 0.75em 0 0.5em;
   padding: 0 0 0.3em;
   border-bottom: 1px solid var(--line);
 }
 
 #write h2 {
-  font-size: 1.75em;
-  line-height: 1.225;
+  font-size: 1.5em;
+  margin: 1em 0 0.667em;
   padding: 0 0 0.3em;
   border-bottom: 1px solid var(--line);
 }
 
 #write h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
+  font-size: 1.25em;
+  margin: 1.2em 0 0.8em;
 }
 
 #write h4 {
-  font-size: 1.25em;
+  font-size: 1em;
+  margin: 1.5em 0 1em;
 }
 
 #write h5 {
-  font-size: 1em;
+  font-size: 0.875em;
+  margin: 1.714em 0 1.143em;
 }
 
+/* The one heading GitHub greys out rather than sizing up. */
 #write h6 {
-  font-size: 1em;
+  font-size: 0.85em;
+  margin: 1.765em 0 1.176em;
   color: var(--muted);
 }
 
-/* Everything sits on the same 0.8em rhythm, which is tighter than Nib's. */
+/* 16px under a block and nothing above it, which is the whole of GitHub's
+   vertical rhythm. */
 #write p,
-#write ul,
-#write ol,
 #write table {
-  margin: 0.8em 0;
+  margin: 0 0 1em;
 }
 
-/* Blue, and no line under it until the pointer is there. */
+#write ul,
+#write ol {
+  margin: 0 0 1em;
+  padding: 0 0 0 2em;
+}
+
+/* Blue, and no line under it: GitHub underlines a link only under the pointer,
+   and a theme has no way to say so. */
 #write a {
   border-bottom: none;
+  text-decoration: none;
 }
 
-/* Three pixels of radius rather than Nib's nine: a GitHub code box is nearly
-   square, and that is most of why the page reads the way it does. */
+/* bgColor-neutral-muted under inline code and bgColor-muted under a block, both
+   at 85% and both on GitHub's 6px corner. The two greys are the surfaces above,
+   which are those tokens laid over the page in each scheme. */
 #write code {
   background: var(--surface-2);
-  border: 1px solid #e7eaed;
-  border-radius: 3px;
-  font-size: 0.9em;
-  padding: 0.1em 0.25em;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85em;
+  padding: 0.2em 0.4em;
 }
 
 #write pre {
   background: var(--surface);
-  border: 1px solid #e7eaed;
-  border-radius: 3px;
-  font-size: 0.9em;
-  padding: 0.5em 0.85em;
-  margin: 0.94em 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85em;
+  line-height: 1.45;
+  padding: 1em;
+  margin: 0 0 1em;
 }
 
+#write pre code {
+  background: none;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* A quarter-em bar in the line colour, and the words beside it muted. */
 #write blockquote {
-  border-left: 4px solid var(--line-strong);
+  border-left: 0.25em solid var(--line-strong);
   color: var(--muted);
-  margin: 0.8em 0;
-  padding: 0 0 0 15px;
+  margin: 0 0 1em;
+  padding: 0 1em;
 }
 
 #write th,
 #write td {
   padding: 6px 13px;
+  border: 1px solid var(--line-strong);
 }
 
-/* A two pixel bar rather than Nib's hairline. A theme may not set a height, so
-   the rule is drawn as a border: the box is one pixel tall and border-box sizing
-   lets the border stand it up to two. */
+#write th {
+  font-weight: 600;
+}
+
+/* GitHub greys every second row, which a theme may not say. The same grey goes
+   on the header instead, so a table still reads as a table with a top to it. */
+#write thead {
+  background: var(--surface);
+}
+
+/* A quarter-em bar rather than a hairline. A theme may not set a height, so it
+   is drawn as a border: the box is one pixel tall and border-box sizing lets
+   the border stand it up. */
 #write hr {
   background: none;
-  border-top: 2px solid #e7e7e7;
-  margin: 1.6em 0;
+  border-top: 0.25em solid var(--line-strong);
+  margin: 1.5em 0;
 }
