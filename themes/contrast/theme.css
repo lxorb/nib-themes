@@ -1,37 +1,52 @@
 /* Contrast: pure black on white, and pure white on black. Body text is at 21:1
    in both schemes, which is as far as a screen goes.
 
+   The palette is measured rather than picked. Every colour meant to be read is
+   at 7:1 or better against the page it is read on, and the surfaces and the
+   lines are far enough apart to be seen as edges rather than guessed at. It was
+   a layer inside the app before this, painted over whichever theme was in force;
+   a look is a theme, so here it is as one.
+
    The lines are the other half of it. Nib's own dividers are a step away from
    the surface they sit on, which is right for a quiet theme and useless to
-   somebody who cannot see them, so here they are dark grey on white and light
-   grey on black: a border in this theme is a line you can find. */
+   somebody who cannot see them, so here they are grey against either page: a
+   border in this theme is a line you can find. */
 
 [data-theme='light'] {
   color-scheme: light;
 
   --bg: #ffffff;
-  --surface: #f2f2f2;
-  --surface-2: #e4e4e4;
-  --surface-3: #d0d0d0;
-  --press: #b8b8b8;
+  --surface: #f2f4f7;
+  --surface-2: #e6eaf0;
+  --surface-3: #d7dde6;
+  --press: #c6cede;
 
-  --line: #4d4d4d;
-  --line-strong: #000000;
+  --line: #7c8593;
+  --line-strong: #5c6472;
 
-  --muted: #454545;
-  --muted-strong: #1f1f1f;
+  --muted: #4a515c;
+  --muted-strong: #2b3038;
   --text: #000000;
   --text-strong: #000000;
 
-  --accent: #0b2fbf;
-  --accent-hover: #08249b;
-  --accent-press: #051a75;
-  --accent-soft: rgb(11 47 191 / 0.14);
-  --accent-line: rgb(11 47 191 / 0.7);
-  --selection: rgb(11 47 191 / 0.24);
+  --accent: #3a25c9;
+  --accent-hover: #2e1cae;
+  --accent-press: #24148f;
+  --accent-soft: rgb(58 37 201 / 0.14);
+  --accent-line: rgb(58 37 201 / 0.6);
+  --selection: rgb(58 37 201 / 0.24);
 
-  --danger: #a10010;
-  --success: #005b2f;
+  --danger: #b3121b;
+  --success: #0a7a4e;
+
+  /* The four colours inside a code fence. Everything else in one reads a colour
+     above: a keyword is the accent, a string is the success colour, a comment is
+     muted. These four have no other name, so a theme that did not state them
+     left the fence at whatever the app draws one in. */
+  --syntax-number: #8a4b00;
+  --syntax-function: #0b4fbe;
+  --syntax-type: #0a7a4e;
+  --syntax-property: #6a1fb0;
 
   --canvas-1: #c00018;
   --canvas-2: #a34500;
@@ -41,8 +56,8 @@
   --canvas-6: #4b1fa8;
   --canvas-dot: #9a9a9a;
 
-  --scrollbar: #6b6b6b;
-  --scrollbar-hover: #333333;
+  --scrollbar: #9aa3b2;
+  --scrollbar-hover: #6b7480;
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.24);
   --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.36);
@@ -56,28 +71,33 @@
   color-scheme: dark;
 
   --bg: #000000;
-  --surface: #121212;
-  --surface-2: #1f1f1f;
-  --surface-3: #2e2e2e;
-  --press: #404040;
+  --surface: #101318;
+  --surface-2: #191d24;
+  --surface-3: #232830;
+  --press: #2d333d;
 
-  --line: #b0b0b0;
-  --line-strong: #ffffff;
+  --line: #5d6673;
+  --line-strong: #7e8898;
 
-  --muted: #c4c4c4;
-  --muted-strong: #e8e8e8;
+  --muted: #b9c0cb;
+  --muted-strong: #d8dee6;
   --text: #ffffff;
   --text-strong: #ffffff;
 
-  --accent: #8ab6ff;
-  --accent-hover: #a6c8ff;
-  --accent-press: #6d9ff0;
-  --accent-soft: rgb(138 182 255 / 0.22);
-  --accent-line: rgb(138 182 255 / 0.8);
-  --selection: rgb(138 182 255 / 0.34);
+  --accent: #9d90ff;
+  --accent-hover: #b3a8ff;
+  --accent-press: #8b7bff;
+  --accent-soft: rgb(157 144 255 / 0.22);
+  --accent-line: rgb(157 144 255 / 0.7);
+  --selection: rgb(157 144 255 / 0.4);
 
-  --danger: #ff8a8a;
-  --success: #6ee79f;
+  --danger: #ff6b70;
+  --success: #4ee39f;
+
+  --syntax-number: #ffc861;
+  --syntax-function: #79b8ff;
+  --syntax-type: #5ef2b0;
+  --syntax-property: #d0a6ff;
 
   --canvas-1: #ff7b7b;
   --canvas-2: #ffb35c;
@@ -87,8 +107,8 @@
   --canvas-6: #c0a6ff;
   --canvas-dot: #5a5a5a;
 
-  --scrollbar: #8f8f8f;
-  --scrollbar-hover: #d4d4d4;
+  --scrollbar: #5b6470;
+  --scrollbar-hover: #7d8794;
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.9);
   --shadow-md: 0 8px 24px -6px rgb(0 0 0 / 0.9);
@@ -97,6 +117,8 @@
   --callout-note: #8ab6ff;
   --callout-warning: #ffcf5c;
 
+  /* The accent is light on this side, so the words the search picks out sit on it
+     in black. */
   --search-select-text-color: #000000;
 }
 
