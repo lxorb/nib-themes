@@ -181,6 +181,13 @@ export const KNOWN_TOKENS = new Set([
   '--danger',
   '--success',
   '--selection',
+  // The four colours inside a code fence. Not --code-*: every token with that
+  // prefix is the furniture around a block rather than the code in it, and
+  // --code-number-color is the colour of the line numbers in the margin.
+  '--syntax-number',
+  '--syntax-function',
+  '--syntax-type',
+  '--syntax-property',
   '--canvas-1',
   '--canvas-2',
   '--canvas-3',
