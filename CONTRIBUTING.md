@@ -130,6 +130,21 @@ three are usually the accent at low alpha. The six canvas colours are the ones
 JSON Canvas names by number, in the spec's order, so a canvas coloured in Nib
 reads the same in another app that follows it.
 
+The four colours inside a code fence, also per scheme:
+
+```
+--syntax-number  --syntax-function  --syntax-type  --syntax-property
+```
+
+Everything else in a fence already follows a colour above: a keyword is the
+accent, a string is `--success`, a comment is `--muted` and the punctuation is
+`--muted-strong`. These four have no other name, which is why they are tokens at
+all. They are not `--code-number` and friends: every token spelled `--code-` is
+the furniture around a block rather than the code in it, and `--code-number-color`
+is the colour of the line numbers in the margin. The four apply while the
+Highlighting setting follows the theme, which is what it does unless the reader
+chooses GitHub or Dracula, and those pin their own colours.
+
 Type. Only worth touching if the theme is really about type, and every stack has
 to end in a family that exists on the machine:
 
