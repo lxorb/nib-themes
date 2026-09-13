@@ -37,7 +37,12 @@
   --selection: rgb(58 37 201 / 0.24);
 
   --danger: #b3121b;
-  --success: #0a7a4e;
+  /* Two shades down from the #0a7a4e this theme shipped with, which was 5.38:1
+     on the white above - past the registry's 4.5 bar, but under the 5.73:1 the
+     app's own light theme has for the same token. A theme called Contrast that
+     lowers a colour is the one thing it may not do. This is 7.75:1, which is the
+     7:1 the header says the palette is measured to. */
+  --success: #065f3c;
 
   /* The four colours inside a code fence. Everything else in one reads a colour
      above: a keyword is the accent, a string is the success colour, a comment is
