@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-11",
+  "generated": "2026-09-13",
   "themes": [
     {
       "id": "contrast",
       "name": "Contrast",
       "author": "Nib",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "Black on white and white on black, with strong lines, a loud accent and a fence to match.",
       "tags": [
         "light",
@@ -17,7 +17,7 @@
         "light",
         "dark"
       ],
-      "updated": "2026-09-11",
+      "updated": "2026-09-13",
       "palettes": {
         "light": {
           "--bg": "#ffffff",
@@ -38,7 +38,7 @@
           "--accent-line": "rgb(58 37 201 / 0.6)",
           "--selection": "rgb(58 37 201 / 0.24)",
           "--danger": "#b3121b",
-          "--success": "#0a7a4e",
+          "--success": "#065f3c",
           "--syntax-number": "#8a4b00",
           "--syntax-function": "#0b4fbe",
           "--syntax-type": "#0a7a4e",
