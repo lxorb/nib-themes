@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-13",
+  "generated": "2026-10-13",
   "themes": [
     {
       "id": "contrast",
@@ -663,18 +663,20 @@
       "id": "warm-paper",
       "name": "Warm Paper",
       "author": "Emil Vinu",
-      "version": "1.0.0",
-      "description": "Cream paper, brown ink and a terracotta accent, for writing in daylight.",
+      "version": "1.1.0",
+      "description": "Cream paper and brown ink by day, warm dark paper and cream ink by night, with a terracotta accent.",
       "tags": [
         "light",
+        "dark",
         "warm",
         "serif"
       ],
       "licence": "MIT",
       "variants": [
-        "light"
+        "light",
+        "dark"
       ],
-      "updated": "2026-09-07",
+      "updated": "2026-10-13",
       "palettes": {
         "light": {
           "--font-content": "'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
@@ -685,18 +687,24 @@
           "--press": "#d4c8b1",
           "--line": "#e6dcc9",
           "--line-strong": "#cfc2a8",
-          "--muted": "#6e6353",
+          "--muted": "#655a4b",
           "--muted-strong": "#544b3f",
           "--text": "#2b2620",
           "--text-strong": "#14100c",
-          "--accent": "#a8542a",
-          "--accent-hover": "#94481f",
-          "--accent-press": "#7d3b17",
-          "--accent-soft": "rgb(168 84 42 / 0.1)",
-          "--accent-line": "rgb(168 84 42 / 0.38)",
-          "--selection": "rgb(168 84 42 / 0.2)",
+          "--accent": "#9e4c24",
+          "--accent-hover": "#87401b",
+          "--accent-press": "#753715",
+          "--accent-soft": "rgb(158 76 36 / 0.1)",
+          "--accent-line": "rgb(158 76 36 / 0.38)",
+          "--selection": "rgb(158 76 36 / 0.2)",
           "--danger": "#b3261e",
-          "--success": "#2f7a4d",
+          "--success": "#2a6f46",
+          "--syntax-number": "#8f5309",
+          "--syntax-function": "#2c5f94",
+          "--syntax-type": "#2f6b4a",
+          "--syntax-property": "#7a4a8c",
+          "--md-char-color": "#968872",
+          "--heading-char-color": "#968872",
           "--canvas-1": "#c3402f",
           "--canvas-2": "#c07414",
           "--canvas-3": "#a98a12",
@@ -710,9 +718,50 @@
           "--shadow-md": "0 8px 24px -6px rgb(74 56 32 / 0.14)",
           "--shadow-lg": "0 24px 64px -12px rgb(74 56 32 / 0.2)",
           "--callout-note": "#2f6a9e",
-          "--callout-warning": "#a97c12"
+          "--callout-warning": "#86600d"
         },
-        "dark": {}
+        "dark": {
+          "--font-content": "'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
+          "--bg": "#1c1814",
+          "--surface": "#221d18",
+          "--surface-2": "#29231d",
+          "--surface-3": "#322a23",
+          "--press": "#3c332a",
+          "--line": "#2f2821",
+          "--line-strong": "#443a30",
+          "--muted": "#a39584",
+          "--muted-strong": "#c2b4a1",
+          "--text": "#e8dcc8",
+          "--text-strong": "#f7efe2",
+          "--accent": "#e0895c",
+          "--accent-hover": "#e99a70",
+          "--accent-press": "#f0ab86",
+          "--accent-soft": "rgb(224 137 92 / 0.14)",
+          "--accent-line": "rgb(224 137 92 / 0.42)",
+          "--selection": "rgb(224 137 92 / 0.28)",
+          "--danger": "#f07b6c",
+          "--success": "#8cc08f",
+          "--syntax-number": "#e5a95a",
+          "--syntax-function": "#8fb4dc",
+          "--syntax-type": "#a8c98c",
+          "--syntax-property": "#d59ac0",
+          "--md-char-color": "#7d7062",
+          "--heading-char-color": "#7d7062",
+          "--canvas-1": "#e5604f",
+          "--canvas-2": "#e08a3a",
+          "--canvas-3": "#d4b043",
+          "--canvas-4": "#82b06a",
+          "--canvas-5": "#5fb3aa",
+          "--canvas-6": "#a98fd6",
+          "--canvas-dot": "#352d26",
+          "--scrollbar": "#4a4036",
+          "--scrollbar-hover": "#605345",
+          "--shadow-sm": "0 1px 2px rgb(8 5 2 / 0.45)",
+          "--shadow-md": "0 8px 24px -6px rgb(8 5 2 / 0.6)",
+          "--shadow-lg": "0 24px 64px -12px rgb(8 5 2 / 0.72)",
+          "--callout-note": "#86aed8",
+          "--callout-warning": "#dcae4e"
+        }
       }
     }
   ]
