@@ -1,8 +1,18 @@
-/* Warm Paper: a light theme for daylight, built on cream rather than white.
-   The ground is a warm off-white and the text is a brown black, so the page
-   reads like paper under a lamp instead of a lit panel. The accent is
+/* Warm Paper: cream paper for daylight, and the same paper at night.
+
+   By day the ground is a warm off-white and the text is a brown black, so the
+   page reads like paper under a lamp instead of a lit panel. The accent is
    terracotta, which is the one saturated colour here and stays quiet next to
-   the ochre lines. */
+   the ochre lines.
+
+   By night it is not that page turned inside out. A grey inversion of cream is
+   a cold slate, and white type on it glares. The dark side is what iA Writer's
+   night mode, Bear and a reader's sepia night all settle on instead: a brown
+   that is nearly black, cream ink rather than white, and every colour on it
+   taken warm and a little dusty, so nothing on the page is brighter than the
+   words. Both sides hold body text past 10 to one, secondary text, links and
+   code past 4.5 to one on every surface, and follow the app's light and dark
+   switch, the system's included. */
 
 :root {
   /* The one theme in the set that is partly about type. A serif at the size Nib
@@ -24,20 +34,37 @@
   --line: #e6dcc9;
   --line-strong: #cfc2a8;
 
-  --muted: #6e6353;
+  /* Muted was #6e6353, which came to 4.1 to one inside a menu. */
+  --muted: #655a4b;
   --muted-strong: #544b3f;
   --text: #2b2620;
   --text-strong: #14100c;
 
-  --accent: #a8542a;
-  --accent-hover: #94481f;
-  --accent-press: #7d3b17;
-  --accent-soft: rgb(168 84 42 / 0.1);
-  --accent-line: rgb(168 84 42 / 0.38);
-  --selection: rgb(168 84 42 / 0.2);
+  /* A step darker than the first #a8542a, which a link on a card read at 4.2 to
+     one; the hover is also the colour a #tag is written in, on a wash of itself. */
+  --accent: #9e4c24;
+  --accent-hover: #87401b;
+  --accent-press: #753715;
+  --accent-soft: rgb(158 76 36 / 0.1);
+  --accent-line: rgb(158 76 36 / 0.38);
+  --selection: rgb(158 76 36 / 0.2);
 
   --danger: #b3261e;
-  --success: #2f7a4d;
+  --success: #2a6f46;
+
+  /* The four colours of a code fence the palette has no other name for. The
+     app's own are drawn for a white page and a dark one, and on cream its
+     yellow and green came to under two to one. These are the same four hues
+     taken down to ink. */
+  --syntax-number: #8f5309;
+  --syntax-function: #2c5f94;
+  --syntax-type: #2f6b4a;
+  --syntax-property: #7a4a8c;
+
+  /* The markdown signature, the `#` and `**` that show as they are typed:
+     barely there, and warm, rather than the app's blue grey. */
+  --md-char-color: #968872;
+  --heading-char-color: #968872;
 
   /* The six canvas colours, warmed to sit on cream. They keep the order and the
      hues the JSON Canvas spec numbers, so a canvas coloured here still reads
@@ -60,7 +87,75 @@
   --shadow-lg: 0 24px 64px -12px rgb(74 56 32 / 0.2);
 
   --callout-note: #2f6a9e;
-  --callout-warning: #a97c12;
+  /* A callout's title is written in its colour, and the ochre this was came to
+     3.5 to one on the page. */
+  --callout-warning: #86600d;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* The paper at night: a brown so dark it reads as black until it is beside
+     black, and four surfaces stepping up from it in the same hue. */
+  --bg: #1c1814;
+  --surface: #221d18;
+  --surface-2: #29231d;
+  --surface-3: #322a23;
+  --press: #3c332a;
+
+  --line: #2f2821;
+  --line-strong: #443a30;
+
+  /* Cream ink, not white: 13 to one on the page, which is plenty, and without
+     the halo white type has on a dark ground. */
+  --muted: #a39584;
+  --muted-strong: #c2b4a1;
+  --text: #e8dcc8;
+  --text-strong: #f7efe2;
+
+  /* The same terracotta, lit: light enough to read as a link at 6.6 to one and
+     to carry the app's dark ink on a button at 7.3. Hover and press step away
+     from the page, which on this side is lighter. */
+  --accent: #e0895c;
+  --accent-hover: #e99a70;
+  --accent-press: #f0ab86;
+  --accent-soft: rgb(224 137 92 / 0.14);
+  --accent-line: rgb(224 137 92 / 0.42);
+  --selection: rgb(224 137 92 / 0.28);
+
+  --danger: #f07b6c;
+  --success: #8cc08f;
+
+  /* The fence's four, warm and dusty like everything else on this side. */
+  --syntax-number: #e5a95a;
+  --syntax-function: #8fb4dc;
+  --syntax-type: #a8c98c;
+  --syntax-property: #d59ac0;
+
+  --md-char-color: #7d7062;
+  --heading-char-color: #7d7062;
+
+  /* The canvas colours in the spec's order, lit for a dark ground and kept
+     short of neon. */
+  --canvas-1: #e5604f;
+  --canvas-2: #e08a3a;
+  --canvas-3: #d4b043;
+  --canvas-4: #82b06a;
+  --canvas-5: #5fb3aa;
+  --canvas-6: #a98fd6;
+  --canvas-dot: #352d26;
+
+  --scrollbar: #4a4036;
+  --scrollbar-hover: #605345;
+
+  /* At night a shadow is mostly the absence of light, so these are nearly
+     black, with the paper's brown in them. */
+  --shadow-sm: 0 1px 2px rgb(8 5 2 / 0.45);
+  --shadow-md: 0 8px 24px -6px rgb(8 5 2 / 0.6);
+  --shadow-lg: 0 24px 64px -12px rgb(8 5 2 / 0.72);
+
+  --callout-note: #86aed8;
+  --callout-warning: #dcae4e;
 }
 
 /* A quote in a serif page wants the italic it would have had in print. */
